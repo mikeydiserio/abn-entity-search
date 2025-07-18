@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AU Business Entities Search</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --gray-light: #e2e8f0;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --radius-sm: 6px;
+            --radius-md: 10px;
+            --radius-lg: 14px;
+            --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.15);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--dark);
+            background-color: #f1f5f9;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px 0;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+        }
+        
+        .logo-icon {
+            font-size: 28px;
+            color: var(--primary);
+        }
+        
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .logo-subtext {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        .menu {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+        }
+        
+        .menu li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+        
+        .menu li a:hover {
+            background: var(--gray-light);
+        }
+        
+        .search-section {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .search-box {
+            position: relative;
+            display: flex;
+            width: 100%;
+            box-shadow: var(--shadow-sm);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .search-box:focus-within {
+            box-shadow: 0 0 0 2px var(--primary), var(--shadow-md);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 16px;
+            border: none;
+            outline: none;
+            border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+        }
+        
+        .search-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .search-hints {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .hint-pill {
+            background-color: var(--gray-light);
+            color: var(--dark);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .hint-pill:hover {
+            background-color: #d1dce9;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .results-container {
+            position: relative;
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+        
+        .results-header {
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .results-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .results-tools {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .sort-select {
+            padding: 8px 15px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--gray-light);
+            background-color: var(--light);
+            cursor: pointer;
+            outline: none;
+        }
+        
+        .results-list {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .result-item {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .result-item:hover {
+            background-color: #f8fbfe;
+        }
+        
+        .result-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 4px;
+            height: 100%;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .result-item:hover::after {
+            right: 0;
+        }
+        
+        .result-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--primary-dark);
+        }
+        
+        .result-details {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .result-detail {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .result-meta {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .result-tag {
+            background-color: var(--gray-light);
+            color: var(--dark);
+            padding: 5px 12px;
+            border-radius: var(--radius-md);
+            font-size: 13px;
+            font-weight: 500;
+        }
+        
+        .filters-container {
+            background: white;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            height: fit-content;
+        }
+        
+        .filter-group {
+            padding: 20px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .filter-group:last-child {
+            border-bottom: none;
+        }
+        
+        .filter-title {
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--dark);
+        }
+        
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .filter-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .filter-row label {
+            font-size: 14px;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        input[type="checkbox"] {
+            accent-color: var(--primary);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .filter-button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            padding: 20px;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: var(--radius-md);
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            transform: translateY(50px);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 25px;
+            border-radius: var(--radius-md) var(--radius-md) 0 0;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+        
+        .modal-name {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .modal-abn {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .modal-main {
+            padding: 25px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        .info-row {
+            margin-bottom: 15px;
+        }
+        
+        .info-label {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        .address-box {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .address-line {
+            margin-bottom: 8px;
+        }
+        
+        .business-names {
+            background-color: var(--light);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .name-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        .name-item:last-child {
+            border-bottom: none;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--gray);
+            font-size: 14px;
+            border-top: 1px solid var(--gray-light);
+            margin-top: 50px;
+        }
+        
+        .skeleton {
+            animation: skeleton-loading 1s linear infinite alternate;
+            border-radius: var(--radius-md);
+        }
+        
+        @keyframes skeleton-loading {
+            0% {
+                background-color: #e2e8f0;
+            }
+            100% {
+                background-color: #cbd5e1;
+            }
+        }
+        
+        .skeleton-text {
+            width: 100%;
+            height: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .loading-indicator {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--gray-light);
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 900px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+            
+            .result-details {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .modal-content {
+                max-height: 85vh;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-button span {
+                display: none;
+            }
+            
+            .search-button {
+                padding: 0 20px;
+            }
+            
+            .modal-header {
+                padding: 20px 15px;
+            }
+            
+            .modal-name {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div>
+                        <div class="logo-text">AU Business Finder</div>
+                        <div class="logo-subtext">Australian Companies Register</div>
+                    </div>
+                </div>
+                <ul class="menu">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" class="search-input" placeholder="Search company name, ABN, industry, location...">
+                    <button class="search-button">
+                        <i class="fas fa-search"></i>
+                        <span>Search</span>
+                    </button>
+                </div>
+                <div class="search-hints">
+                    <div class="hint-pill">Technology</div>
+                    <div class="hint-pill">Healthcare</div>
+                    <div class="hint-pill">Construction</div>
+                    <div class="hint-pill">Sydney</div>
+                    <div class="hint-pill">ABN Search</div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content-wrapper">
+            <main class="results-container">
+                <div class="results-header">
+                    <div class="results-title">
+                        Showing <span id="results-count">42</span> results for "technology"
+                    </div>
+                    <div class="results-tools">
+                        <div>
+                            <span>Sort by:</span>
+                            <select class="sort-select">
+                                <option value="name-asc">Name (A-Z)</option>
+                                <option value="name-desc">Name (Z-A)</option>
+                                <option value="revenue-asc">Revenue (Low to High)</option>
+                                <option value="revenue-desc">Revenue (High to Low)</option>
+                                <option value="employees-asc">Employees (Low to High)</option>
+                                <option value="employees-desc">Employees (High to Low)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="results-list">
+                    <!-- Result items will be added here dynamically -->
+                    <div class="result-item" onclick="openModal(0)">
+                        <div class="result-title">Quantum Innovations Pty Ltd</div>
+                        <div class="result-details">
+                            <div class="result-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>ABN: 30 123 456 789</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Sydney, NSW 2000</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Software Development</span>
+                            </div>
+                        </div>
+                        <div class="result-meta">
+                            <div class="result-tag">Employee: 50-100</div>
+                            <div class="result-tag">Revenue: $5m-$10m</div>
+                            <div class="result-tag">Active</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-item" onclick="openModal(1)">
+                        <div class="result-title">Synergy Digital Solutions</div>
+                        <div class="result-details">
+                            <div class="result-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>ABN: 24 987 654 321</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Melbourne, VIC 3000</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>IT Services</span>
+                            </div>
+                        </div>
+                        <div class="result-meta">
+                            <div class="result-tag">Employee: 20-50</div>
+                            <div class="result-tag">Revenue: $1m-$5m</div>
+                            <div class="result-tag">Active</div>
+                        </div>
+                    </div>
+                    
+                    <div class="result-item" onclick="openModal(2)">
+                        <div class="result-title">Horizon Robotics Australia</div>
+                        <div class="result-details">
+                            <div class="result-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>ABN: 51 456 789 012</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Brisbane, QLD 4000</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Robotics & AI</span>
+                            </div>
+                        </div>
+                        <div class="result-meta">
+                            <div class="result-tag">Employee: 100-250</div>
+                            <div class="result-tag">Revenue: $20m-$50m</div>
+                            <div class="result-tag">Active</div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            
+            <aside class="filters-container">
+                <div class="filter-group">
+                    <div class="filter-title">
+                        <i class="fas fa-filter"></i>
+                        Refine Results
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-row">
+                            <input type="checkbox" id="active-checkbox" checked>
+                            <label for="active-checkbox">Active entities only</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="gst-checkbox">
+                            <label for="gst-checkbox">Registered for GST</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <div class="filter-title">
+                        <i class="fas fa-industry"></i>
+                        Industry
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-row">
+                            <input type="checkbox" id="tech-checkbox" checked>
+                            <label for="tech-checkbox">Technology</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="finance-checkbox">
+                            <label for="finance-checkbox">Finance & Insurance</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="health-checkbox">
+                            <label for="health-checkbox">Healthcare</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="construction-checkbox">
+                            <label for="construction-checkbox">Construction</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="filter-group">
+                    <div class="filter-title">
+                        <i class="fas fa-users"></i>
+                        Employee Size
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-row">
+                            <input type="checkbox" id="size1-checkbox">
+                            <label for="size1-checkbox">1-10 employees</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="size2-checkbox" checked>
+                            <label for="size2-checkbox">11-50 employees</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="size3-checkbox">
+                            <label for="size3-checkbox">51-200 employees</label>
+                        </div>
+                        <div class="filter-row">
+                            <input type="checkbox" id="size4-checkbox">
+                            <label for="size4-checkbox">201+ employees</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="filter-button">
+                    Apply Filters
+                </button>
+            </aside>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2023 Australian Business Finder. This tool provides access to information from the Australian Business Register.</p>
+            <p>ABN: 83 169 311 193 | All data is provided subject to the Australian Open Data License</p>
+        </footer>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal" id="entityModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+                <div class="modal-name">Quantum Innovations Pty Ltd</div>
+                <div class="modal-abn">ABN: 30 123 456 789 | ACN: 123 456 789</div>
+            </div>
+            
+            <div class="modal-main">
+                <div class="section-title">Entity Information</div>
+                
+                <div class="info-grid">
+                    <div>
+                        <div class="info-row">
+                            <div class="info-label">Entity Type</div>
+                            <div class="info-value">Australian Private Company</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">ABN Status</div>
+                            <div class="info-value">Active <i class="fas fa-check-circle" style="color: var(--success);"></i></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">GST Status</div>
+                            <div class="info-value">Registered <i class="fas fa-check-circle" style="color: var(--success);"></i></div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">ABN Registered From</div>
+                            <div class="info-value">15 March 2018</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="info-row">
+                            <div class="info-label">Industry</div>
+                            <div class="info-value">Computer Services (Software Development)</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Industry Code</div>
+                            <div class="info-value">ANZSIC 6202</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Employee Range</div>
+                            <div class="info-value">50-100</div>
+                        </div>
+                        <div class="info-row">
+                            <div class="info-label">Revenue Band</div>
+                            <div class="info-value">$5M - $10M</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-row" style="margin-top: 20px;">
+                    <div class="info-label">Main Business Location</div>
+                    <div class="address-box">
+                        <div class="address-line">Level 5, 100 Innovation Avenue</div>
+                        <div class="address-line">Barangaroo</div>
+                        <div class="address-line">Sydney NSW 2000</div>
+                        <div class="address-line">Australia</div>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Website</div>
+                    <div class="info-value">
+                        <a href="https://www.quantum-innovations.au" target="_blank">www.quantum-innovations.au</a>
+                    </div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Email Domain</div>
+                    <div class="info-value">@quantum-innovations.au</div>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">(02) 9876 5432</div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <div class="section-title">Registered Business Names</div>
+                    <div class="business-names">
+                        <div class="name-item">
+                            <div style="font-weight: 600;">Quantum Innovations</div>
+                            <div style="color: var(--gray); font-size: 14px; margin-top: 5px;">Registered since: 15/03/2018</div>
+                        </div>
+                        <div class="name-item">
+                            <div style="font-weight: 600;">QI Tech Solutions</div>
+                            <div style="color: var(--gray); font-size: 14px; margin-top: 5px;">Registered since: 12/05/2020</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 30px;">
+                    <div class="section-title">DGR Funds</div>
+                    <div class="business-names">
+                        <div class="name-item">
+                            <div style="font-weight: 600;">Quantum Tech Foundation</div>
+                            <div style="color: var(--gray); font-size: 14px; margin-top: 5px;">Status: Active</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const modal = document.getElementById('entityModal');
+        const searchInput = document.querySelector('.search-input');
+        const searchButton = document.querySelector('.search-button');
+        
+        // Mock data for entities (using the Entity interface structure)
+        const mockEntities = [
+            {
+                id: 1,
+                name: "Quantum Innovations Pty Ltd",
+                abn: "30 123 456 789",
+                acn: "123 456 789",
+                industry: "Computer Services (Software Development)",
+                industryCode: "ANZSIC 6202",
+                employeeCount: 75,
+                revenueBand: "$5M - $10M",
+                website: "https://www.quantum-innovations.au",
+                emailDomain: "@quantum-innovations.au",
+                phone: "(02) 9876 5432",
+                address: {
+                    street: "Level 5, 100 Innovation Avenue",
+                    suburb: "Barangaroo",
+                    state: "NSW",
+                    postcode: "2000"
+                },
+                business_names: [
+                    { id: 101, abn: "30 123 456 789", name: "Quantum Innovations", type: "Trading" },
+                    { id: 102, abn: "30 123 456 789", name: "QI Tech Solutions", type: "Trading" }
+                ],
+                dgr_funds: [
+                    { id: 201, abn: "30 123 456 789", fund_name: "Quantum Tech Foundation", status_from: "01/01/2020" }
+                ],
+                abn_status: "Active",
+                gst_status: "Registered"
+            },
+            {
+                id: 2,
+                name: "Synergy Digital Solutions",
+                abn: "24 987 654 321",
+                acn: "987 654 321",
+                industry: "Information Technology Services",
+                industryCode: "ANZSIC 6202",
+                employeeCount: 35,
+                revenueBand: "$1M - $5M",
+                website: "https://www.synergydigital.com.au",
+                emailDomain: "@synergydigital.com.au",
+                phone: "(03) 8765 4321",
+                address: {
+                    street: "Suite 8, 200 Tech Park Drive",
+                    suburb: "Southbank",
+                    state: "VIC",
+                    postcode: "3000"
+                },
+                business_names: [
+                    { id: 103, abn: "24 987 654 321", name: "Synergy Digital", type: "Trading" }
+                ],
+                dgr_funds: [],
+                abn_status: "Active",
+                gst_status: "Registered"
+            },
+            {
+                id: 3,
+                name: "Horizon Robotics Australia",
+                abn: "51 456 789 012",
+                acn: "456 789 012",
+                industry: "Robotics & Artificial Intelligence",
+                industryCode: "ANZSIC 6922",
+                employeeCount: 150,
+                revenueBand: "$20M - $50M",
+                website: "https://www.horizonrobotics.au",
+                emailDomain: "@horizonrobotics.au",
+                phone: "(07) 3456 7890",
+                address: {
+                    street: "15 Future Way",
+                    suburb: "Fortitude Valley",
+                    state: "QLD",
+                    postcode: "4006"
+                },
+                business_names: [
+                    { id: 104, abn: "51 456 789 012", name: "Horizon Robotics", type: "Trading" },
+                    { id: 105, abn: "51 456 789 012", name: "HRAI", type: "Trading" }
+                ],
+                dgr_funds: [
+                    { id: 202, abn: "51 456 789 012", fund_name: "Future Robotics Fund", status_from: "15/03/2019" },
+                    { id: 203, abn: "51 456 789 012", fund_name: "AI for Good Foundation", status_from: "01/07/2021" }
+                ],
+                abn_status: "Active",
+                gst_status: "Registered"
+            }
+        ];
+        
+        // Event Listeners
+        searchButton.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Function to open the modal
+        function openModal(index) {
+            const entity = mockEntities[index];
+            
+            // Update modal with entity data
+            document.querySelector('.modal-name').textContent = entity.name;
+            document.querySelector('.modal-abn').textContent = `ABN: ${entity.abn} | ACN: ${entity.acn}`;
+            
+            // Entity Information
+            document.querySelector('.info-value:nth-child(2)').textContent = 'Australian Private Company';
+            document.querySelector('.info-value:nth-child(4)').innerHTML = `${entity.abn_status} <i class="fas fa-check-circle" style="color: var(--success);"></i>`;
+            document.querySelector('.info-value:nth-child(6)').innerHTML = `${entity.gst_status} <i class="fas fa-check-circle" style="color: var(--success);"></i>`;
+            document.querySelector('.info-value:nth-child(8)').textContent = '15 March 2018';
+            
+            // Industry Info
+            document.querySelectorAll('.info-value')[4].textContent = entity.industry;
+            document.querySelectorAll('.info-value')[5].textContent = entity.industryCode;
+            document.querySelectorAll('.info-value')[6].textContent = `${entity.employeeCount}+ employees`;
+            document.querySelectorAll('.info-value')[7].textContent = entity.revenueBand;
+            
+            // Address
+            const address = entity.address;
+            document.querySelector('.address-box').innerHTML = `
+                <div class="address-line">${address.street}</div>
+                <div class="address-line">${address.suburb}</div>
+                <div class="address-line">${address.state} ${address.postcode}</div>
+                <div class="address-line">Australia</div>
+            `;
+            
+            // Website
+            document.querySelector('.info-value a').textContent = entity.website.replace('https://', '');
+            document.querySelector('.info-value a').href = entity.website;
+            
+            // Email Domain
+            document.querySelectorAll('.info-value')[8].textContent = entity.emailDomain;
+            
+            // Phone
+            document.querySelectorAll('.info-value')[9].textContent = entity.phone;
+            
+            // Business Names
+            const businessNamesHtml = entity.business_names.map(bn => `
+                <div class="name-item">
+                    <div style="font-weight: 600;">${bn.name}</div>
+                    <div style="color: var(--gray); font-size: 14px; margin-top: 5px;">Registered since: 15/03/2018</div>
+                </div>
+            `).join('');
+            document.querySelector('.business-names').innerHTML = businessNamesHtml;
+            
+            // DGR Funds
+            const dgrFundsHtml = entity.dgr_funds.length > 0 ? 
+                entity.dgr_funds.map(df => `
+                    <div class="name-item">
+                        <div style="font-weight: 600;">${df.fund_name}</div>
+                        <div style="color: var(--gray); font-size: 14px; margin-top: 5px;">Status: Active</div>
+                    </div>
+                `).join('') : 
+                '<div style="padding: 15px; text-align: center; color: var(--gray);">No DGR Funds found</div>';
+            document.querySelector('.business-names:last-child').innerHTML = dgrFundsHtml;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Function to close the modal
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close modal if clicked outside of modal-content
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        
+        // Function to perform the search
+        function performSearch() {
+            const term = searchInput.value.trim();
+            if (term.length < 2) {
+                return;
+            }
+            
+            // Implement actual search logic here
+            // For this demo, we'll just update the results count and title
+            document.getElementById('results-count').textContent = '42';
+            document.querySelector('.results-title').textContent = `Showing 42 results for "${term}"`;
+            
+            // Add skeleton loading animation
+            const resultsList = document.querySelector('.results-list');
+            resultsList.innerHTML = `
+                <div class="result-item">
+                    <div class="skeleton" style="width: 60%; height: 24px; margin-bottom: 10px;"></div>
+                    <div class="skeleton" style="width: 80%; height: 16px;"></div>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                    </div>
+                </div>
+                <div class="result-item">
+                    <div class="skeleton" style="width: 65%; height: 24px; margin-bottom: 10px;"></div>
+                    <div class="skeleton" style="width: 85%; height: 16px;"></div>
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                        <div class="skeleton" style="width: 100px; height: 24px;"></div>
+                    </div>
+                </div>
+            `;
+            
+            // After a short delay, show the results
+            setTimeout(() => {
+                // In a real implementation, this would be replaced with actual search results
+                document.querySelector('.results-title').textContent = `Showing 3 results for "${term}"`;
+                
+                resultsList.innerHTML = '';
+                mockEntities.forEach((entity, index) => {
+                    const employeeRange = 
+                        entity.employeeCount < 10 ? '1-10' :
+                        entity.employeeCount < 50 ? '11-50' :
+                        entity.employeeCount < 200 ? '51-200' : '201+';
+                        
+                    const revenueBand = entity.revenueBand;
+                    
+                    const resultItem = document.createElement('div');
+                    resultItem.className = 'result-item';
+                    resultItem.onclick = () => openModal(index);
+                    
+                    resultItem.innerHTML = `
+                        <div class="result-title">${entity.name}</div>
+                        <div class="result-details">
+                            <div class="result-detail">
+                                <i class="fas fa-id-card"></i>
+                                <span>ABN: ${entity.abn}</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>${entity.address.suburb}, ${entity.address.state} ${entity.address.postcode}</span>
+                            </div>
+                            <div class="result-detail">
+                                <i class="fas fa-briefcase"></i>
+                                <span>${entity.industry}</span>
+                            </div>
+                        </div>
+                        <div class="result-meta">
+                            <div class="result-tag">Employee: ${employeeRange}</div>
+                            <div class="result-tag">Revenue: ${revenueBand}</div>
+                            <div class="result-tag">Active</div>
+                        </div>
+                    `;
+                    
+                    resultsList.appendChild(resultItem);
+                });
+            }, 1000);
+        }
+        
+        // Close modal when pressing Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
