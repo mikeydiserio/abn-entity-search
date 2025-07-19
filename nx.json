@@ -9,14 +9,20 @@
     },
     "lint": {
       "cache": true
+    },
+    "test": {
+      "cache": true
     }
   },
   "defaultBase": "master",
   "plugins": [
     {
-      "plugin": "@nx/eslint/plugin",
+      "plugin": "@nx/jest/plugin",
+      "exclude": [
+        "e2e/**/*"
+      ],
       "options": {
-        "targetName": "eslint:lint"
+        "targetName": "test"
       }
     },
     {
@@ -28,6 +34,16 @@
         "serveStaticTargetName": "serve-static",
         "buildDepsTargetName": "build-deps",
         "watchDepsTargetName": "watch-deps"
+      }
+    },
+    {
+      "plugin": "@nx/jest",
+      "options": {
+        "targetName": "jest:test",
+        "jestConfig": "jest.config.js",
+        "skipSerializers": [
+          "@nx/react/plugins/jest-serializer"
+        ]
       }
     }
   ]

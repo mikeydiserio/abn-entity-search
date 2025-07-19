@@ -1,4 +1,3 @@
-
 export const formatABN = (abn: string): string => {
   // Assuming ABN is 11 digits, format as XX XXX XXX XXX
   if (abn.length === 11) {
@@ -62,11 +61,11 @@ export const formatACN = (acn: string): string => {
 
 export const formatDate = (dateString: string | Date): string => {
   if (!dateString) return 'N/A'
-  
+
   try {
     const date = new Date(dateString)
     if (isNaN(date.getTime())) return 'Invalid Date'
-    
+
     return date.toLocaleDateString('en-AU', {
       day: '2-digit',
       month: '2-digit',
@@ -80,7 +79,7 @@ export const formatDate = (dateString: string | Date): string => {
 // TODO better way to do this?
 export const formatRevenueBand = (band: string): string => {
   if (!band) return 'N/A'
-  
+
   switch (band) {
     case '0-1M':
       return '$0 - $1M'

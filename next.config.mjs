@@ -3,7 +3,7 @@ import { composePlugins, withNx } from '@nx/next'
 
 // Define the base Next.js configuration
 const baseConfig = {
-	  // Use this to set Nx-specific options
+  // Use this to set Nx-specific options
   // See: https://nx.dev/recipes/next/next-config-setup
   nx: {},
 
@@ -15,15 +15,15 @@ const baseConfig = {
     dirs: ['.'],
     ignoreDuringBuilds: true, // Ignore ESLint errors during build
   },
-	poweredByHeader: false,
-	reactStrictMode: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
 }
 
 let configWithPlugins = baseConfig
 
 // Conditionally enable bundle analysis
 if (process.env.ANALYZE === 'true') {
-	configWithPlugins = withBundleAnalyzer()(configWithPlugins)
+  configWithPlugins = withBundleAnalyzer()(configWithPlugins)
 }
 
 const plugins = [

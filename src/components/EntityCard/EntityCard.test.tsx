@@ -57,19 +57,19 @@ describe('EntityCard Component', () => {
     });
 
     test('should render address information', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('123 Test Street, Sydney NSW 2000')).toBeInTheDocument();
     });
 
     test('should render GST status when available', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('Registered')).toBeInTheDocument();
     });
 
     test('should render business names when available', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('Test Business Name')).toBeInTheDocument();
     });
@@ -83,7 +83,7 @@ describe('EntityCard Component', () => {
         businessNames: [],
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={entityWithoutBusinessNames} />);
       // expect(screen.queryByText('Business Names:')).not.toBeInTheDocument();
     });
@@ -95,7 +95,7 @@ describe('EntityCard Component', () => {
         gstFrom: null,
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={entityWithoutGST} />);
       // expect(screen.queryByText('GST:')).not.toBeInTheDocument();
     });
@@ -107,7 +107,7 @@ describe('EntityCard Component', () => {
         dateDeregistered: '2023-12-31',
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={deregisteredEntity} />);
       // expect(screen.getByText('Deregistered')).toBeInTheDocument();
     });
@@ -120,7 +120,7 @@ describe('EntityCard Component', () => {
         website: null,
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={entityWithoutContact} />);
       // expect(screen.queryByText('Contact:')).not.toBeInTheDocument();
     });
@@ -129,21 +129,21 @@ describe('EntityCard Component', () => {
   // Selection state tests
   describe('Selection State', () => {
     test('should render as selected when isSelected is true', () => {
-     
+
       // render(<EntityCard {...defaultProps} isSelected={true} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveClass('selected');
     });
 
     test('should render as unselected when isSelected is false', () => {
-     
+
       // render(<EntityCard {...defaultProps} isSelected={false} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).not.toHaveClass('selected');
     });
 
     test('should apply selection styles correctly', () => {
-     
+
       // render(<EntityCard {...defaultProps} isSelected={true} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveStyle({
@@ -156,44 +156,44 @@ describe('EntityCard Component', () => {
   // Interaction tests
   describe('User Interactions', () => {
     test('should call onClick when card is clicked', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
-      // 
+      //
       // fireEvent.click(card);
       // expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
       // expect(defaultProps.onClick).toHaveBeenCalledWith(mockEntity);
     });
 
     test('should handle keyboard navigation', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
-      // 
+      //
       // fireEvent.keyDown(card, { key: 'Enter' });
       // expect(defaultProps.onClick).toHaveBeenCalledTimes(1);
-      // 
+      //
       // fireEvent.keyDown(card, { key: ' ' });
       // expect(defaultProps.onClick).toHaveBeenCalledTimes(2);
     });
 
     test('should not call onClick when disabled', () => {
-     
+
       // render(<EntityCard {...defaultProps} disabled={true} />);
       // const card = screen.getByTestId('entity-card');
-      // 
+      //
       // fireEvent.click(card);
       // expect(defaultProps.onClick).not.toHaveBeenCalled();
     });
 
     test('should apply hover styles on mouse enter/leave', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
-      // 
+      //
       // fireEvent.mouseEnter(card);
       // expect(card).toHaveClass('hover');
-      // 
+      //
       // fireEvent.mouseLeave(card);
       // expect(card).not.toHaveClass('hover');
     });
@@ -202,19 +202,19 @@ describe('EntityCard Component', () => {
   // Data formatting tests
   describe('Data Formatting', () => {
     test('should format ABN correctly', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('12 345 678 901')).toBeInTheDocument();
     });
 
     test('should format ACN correctly', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('123 456 789')).toBeInTheDocument();
     });
 
     test('should format dates correctly', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByText('01/01/2020')).toBeInTheDocument();
     });
@@ -226,7 +226,7 @@ describe('EntityCard Component', () => {
         gstFrom: null,
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={entityWithNullDates} />);
       // expect(screen.queryByText('01/01/2020')).not.toBeInTheDocument();
     });
@@ -235,7 +235,7 @@ describe('EntityCard Component', () => {
   // Badge rendering tests
   describe('Badge Rendering', () => {
     test('should render status badge with correct variant', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const statusBadge = screen.getByText('Active');
       // expect(statusBadge).toHaveClass('badge-success');
@@ -247,21 +247,21 @@ describe('EntityCard Component', () => {
         status: 'deregistered',
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={deregisteredEntity} />);
       // const statusBadge = screen.getByText('Deregistered');
       // expect(statusBadge).toHaveClass('badge-error');
     });
 
     test('should render entity type badge', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const typeBadge = screen.getByText('company');
       // expect(typeBadge).toHaveClass('badge-info');
     });
 
     test('should render GST status badge', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const gstBadge = screen.getByText('Registered');
       // expect(gstBadge).toHaveClass('badge-success');
@@ -271,7 +271,7 @@ describe('EntityCard Component', () => {
   // Accessibility tests
   describe('Accessibility', () => {
     test('should have proper ARIA attributes', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveAttribute('role', 'button');
@@ -280,7 +280,7 @@ describe('EntityCard Component', () => {
     });
 
     test('should be focusable', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
       // card.focus();
@@ -288,14 +288,14 @@ describe('EntityCard Component', () => {
     });
 
     test('should announce selection state to screen readers', () => {
-     
+
       // render(<EntityCard {...defaultProps} isSelected={true} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveAttribute('aria-selected', 'true');
     });
 
     test('should have descriptive labels', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // expect(screen.getByLabelText(/entity card for test entity/i)).toBeInTheDocument();
     });
@@ -304,28 +304,27 @@ describe('EntityCard Component', () => {
   // Layout and styling tests
   describe('Layout and Styling', () => {
     test('should apply compact layout when specified', () => {
-     
+
       // render(<EntityCard {...defaultProps} layout="compact" />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveClass('layout-compact');
     });
 
     test('should apply detailed layout by default', () => {
-     
+
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveClass('layout-detailed');
     });
 
     test('should handle custom className', () => {
-     
+
       // render(<EntityCard {...defaultProps} className="custom-class" />);
       // const card = screen.getByTestId('entity-card');
       // expect(card).toHaveClass('custom-class');
     });
 
     test('should maintain aspect ratio in grid layout', () => {
-      and layout measurements
       // render(<EntityCard {...defaultProps} />);
       // const card = screen.getByTestId('entity-card');
       // const rect = card.getBoundingClientRect();
@@ -337,12 +336,11 @@ describe('EntityCard Component', () => {
   describe('Performance', () => {
     test('should not re-render unnecessarily', () => {
       const renderSpy = jest.fn();
-      // TODO: Implement with React testing utilities
       // const MemoizedEntityCard = React.memo(EntityCard);
-      // 
+      //
       // const { rerender } = render(<MemoizedEntityCard {...defaultProps} />);
       // rerender(<MemoizedEntityCard {...defaultProps} />);
-      // 
+      //
       // expect(renderSpy).toHaveBeenCalledTimes(1);
     });
 
@@ -356,7 +354,7 @@ describe('EntityCard Component', () => {
       // const startTime = performance.now();
       // render(<EntityCard {...defaultProps} entity={largeEntity} />);
       // const endTime = performance.now();
-      // 
+      //
       // expect(endTime - startTime).toBeLessThan(100); // Should render in under 100ms
     });
   });
@@ -369,14 +367,13 @@ describe('EntityCard Component', () => {
         name: 'Test Entity',
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={incompleteEntity} />);
       // expect(screen.getByText('Test Entity')).toBeInTheDocument();
       // expect(screen.queryByText('undefined')).not.toBeInTheDocument();
     });
 
     test('should handle null entity data', () => {
-      and error boundary
       // expect(() => {
       //   render(<EntityCard {...defaultProps} entity={null} />);
       // }).not.toThrow();
@@ -389,7 +386,7 @@ describe('EntityCard Component', () => {
         acn: 'invalid-acn',
       };
 
-     
+
       // render(<EntityCard {...defaultProps} entity={corruptedEntity} />);
       // expect(screen.getByText(/invalid data/i)).toBeInTheDocument();
     });

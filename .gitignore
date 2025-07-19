@@ -40,6 +40,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+./*.html/
 
 
 .nx/cache
@@ -50,3 +51,7 @@ next-env.d.ts
 # Next.js
 .next
 out
+index.3html
+index copy.html
+index2.html
+index copy.html

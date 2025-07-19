@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 
-export const  LoadingWrapper = styled.div<{size?: string}>`
+export const LoadingWrapper = styled.div<{ size?: string }>`
   text-align: center;
   padding: 60px;
   color: #6b7280;
@@ -12,7 +12,7 @@ export const  LoadingWrapper = styled.div<{size?: string}>`
   width: 100%;
 `;
 
-export const  Spinner = styled.div`
+export const Spinner = styled.div`
   display: inline-block;
   width: 50px;
   height: 50px;

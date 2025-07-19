@@ -1,22 +1,22 @@
-"use client";
+'use client'
 
-import React from "react";
-import { Button } from "../ui";
-import * as S from "./EmptyState.styles";
+import React from 'react'
+import { Button } from '../ui'
+import * as S from './EmptyState.styles'
 
 interface EmptyStateProps {
-  title?: string;
-  description?: string;
-  icon?: React.ReactNode;
-  action?: React.ReactNode;
+  title?: string
+  description?: string
+  icon?: React.ReactNode
+  action?: React.ReactNode
 }
 
-export default function EmptyState({
-  title = "No results found",
-  description = "Try adjusting your search or filter criteria",
+export const EmptyState = ({
+  title = 'No results found',
+  description = 'Try adjusting your search or filter criteria',
   icon,
   action,
-}: EmptyStateProps) {
+}: EmptyStateProps) => {
   return (
     <S.Wrapper>
       {icon && <S.IconWrapper>{icon}</S.IconWrapper>}
@@ -26,10 +26,10 @@ export default function EmptyState({
         {action && <S.ActionWrapper>{action}</S.ActionWrapper>}
       </S.Content>
     </S.Wrapper>
-  );
+  )
 }
 
-export function NoDataEmptyState() {
+export const NoDataEmptyState = () => {
   return (
     <EmptyState
       title="No data available"
@@ -48,14 +48,14 @@ export function NoDataEmptyState() {
         </svg>
       }
     />
-  );
+  )
 }
 
-export function SearchEmptyState({
+export const SearchEmptyState = ({
   onClearSearch,
 }: {
-  onClearSearch?: () => void;
-}) {
+  onClearSearch?: () => void
+}) => {
   return (
     <EmptyState
       title="No companies found"
@@ -79,5 +79,7 @@ export function SearchEmptyState({
         )
       }
     />
-  );
+  )
 }
+
+export default EmptyState

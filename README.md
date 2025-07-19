@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Firmable Assessment
+
+A modern monorepo workspace using Nx, Next.js, and TypeScript.
+
+## Overview
+
+This repository contains a monorepo setup with Nx, focusing on building scalable web applications with Next.js. It includes robust testing, CI/CD integration, and cloud-based build distribution. App can be easily scaled up if need be.
+
+## Processing the data and uploading it to Supabase has caused me to blow past the Free tier limit for accessing the DB and so there might be an issue when querying the DB until I delete some of the data from the tables.
+
+## Project Structure
+
+## Technologies
+
+- **Framework**: Next.js
+- **Language**: TypeScript
+- **Monorepo Tool**: Nx
+- **Package Manager**: pnpm
+- **Backend Integration**: Supabase
+- **Testing**: Jest, Testing Library, Playwright
+- **CI/CD**: GitHub Actions, Nx Cloud
+- **Styling**: [Choose between CSS Modules with Sass or Styled Components]
+
+## Prerequisites
+
+- Node.js >= 20
+- pnpm
+- Nx CLI
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+   git clone https://github.com/your-username/firmable-assessment.git
+   cd firmable-assessment
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies
+```
+pnpm monorepo:install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3.Start development server
+```pnpm dev```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Other bits:
 
-## Learn More
+The supabase-python package was made to handle the processing and uploading of the raw data set into Supabase.
 
-To learn more about Next.js, take a look at the following resources:
+The output of processing leaves the following the 5 tables.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+business_names: Business names associated with ABNs
+dgr_funds: Deductible Gift Recipient funds information
+entities: Main entity data with ABN as primary key
+entity_types: Entity type lookup table
+locations: Location data with state and postcode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Dependency Graph: Visualize project dependencies
 
-## Deploy on Vercel
+CI/CD Pipeline
+This project uses GitHub Actions for CI/CD and Nx Cloud for distributed task execution. The pipeline automatically runs linting, testing, and building on affected projects.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Supabase Integration
+The project includes Supabase integration for backend services with server-side rendering support.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+SPECIAL PLACE IN HELL..
+
+Bundle Analysis
+To analyze bundle size:
+
+License

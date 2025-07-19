@@ -5,7 +5,6 @@ import * as S from "./Header.styles";
 export interface HeaderProps {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
-  handleSearchButton: (searchTerm: string) => void;
 }
 
 const hints = [
@@ -21,7 +20,6 @@ const hints = [
 export const Header = ({
   searchTerm,
   setSearchTerm,
-  handleSearchButton,
 }: HeaderProps) => {
   return (
     <S.HeaderWrapper>
@@ -39,15 +37,14 @@ export const Header = ({
       </S.HeaderTop>
       <S.SearchSection>
         <SearchBar
-          searchTerm={searchTerm}
-          setSearchTerm={setSearchTerm}
-          handleSearchButton={() => handleSearchButton(searchTerm)}
+          value={searchTerm}
+          onChange={setSearchTerm}
           placeholder="Search company name, ABN, industry, location..."
         />
         <S.HintBox>
           {hints.map((hint) => {
             return (
-              <S.HintPill key={hint} onClick={() => handleSearchButton(hint)}>
+              <S.HintPill key={hint} onClick={() => setSearchTerm(hint)}>
                 {hint}
               </S.HintPill>
             );

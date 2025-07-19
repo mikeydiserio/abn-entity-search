@@ -116,3 +116,15 @@ export interface CompanyEntity {
   state?: string;
   website?: string;
 }
+
+export interface SearchResult {
+  abn: string;
+  abn_status: string;
+  legal_name: string;
+  business_name: string | null; // Can be null
+  entity_type: string;
+  gst_status: string;
+  gst_status_from_date: Date;
+  state: string;
+  postcode: string;
+}

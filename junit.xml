@@ -1,89 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="324" failures="0" errors="0" time="14.474">
-  <testsuite name="Header Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.754" tests="19">
-    <testcase classname="Header Component Default Header should render without crashing" name="Header Component Default Header should render without crashing" time="0.008">
+<testsuites name="jest tests" tests="168" failures="0" errors="0" time="2.381">
+  <testsuite name="FilterPanel Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.3" tests="15">
+    <testcase classname="FilterPanel Component should render filter panel with all filter options" name="FilterPanel Component should render filter panel with all filter options" time="0.013">
     </testcase>
-    <testcase classname="Header Component Default Header should display correct title" name="Header Component Default Header should display correct title" time="0.001">
+    <testcase classname="FilterPanel Component should display industry filter options" name="FilterPanel Component should display industry filter options" time="0">
     </testcase>
-    <testcase classname="Header Component Default Header should display correct subtitle" name="Header Component Default Header should display correct subtitle" time="0">
+    <testcase classname="FilterPanel Component should display state filter options" name="FilterPanel Component should display state filter options" time="0">
     </testcase>
-    <testcase classname="Header Component Default Header should render navigation menu" name="Header Component Default Header should render navigation menu" time="0.001">
+    <testcase classname="FilterPanel Component should display revenue band filter options" name="FilterPanel Component should display revenue band filter options" time="0.001">
     </testcase>
-    <testcase classname="Header Component Default Header should have proper semantic structure" name="Header Component Default Header should have proper semantic structure" time="0">
+    <testcase classname="FilterPanel Component should call onFilterChange when industry filter changes" name="FilterPanel Component should call onFilterChange when industry filter changes" time="0">
     </testcase>
-    <testcase classname="Header Component Navigation Menu should render About link" name="Header Component Navigation Menu should render About link" time="0.001">
+    <testcase classname="FilterPanel Component should call onFilterChange when state filter changes" name="FilterPanel Component should call onFilterChange when state filter changes" time="0">
     </testcase>
-    <testcase classname="Header Component Navigation Menu should render Contact link" name="Header Component Navigation Menu should render Contact link" time="0">
+    <testcase classname="FilterPanel Component should call onFilterChange when revenue filter changes" name="FilterPanel Component should call onFilterChange when revenue filter changes" time="0.001">
     </testcase>
-    <testcase classname="Header Component Navigation Menu should handle navigation link clicks" name="Header Component Navigation Menu should handle navigation link clicks" time="0">
+    <testcase classname="FilterPanel Component should show clear filters button when filters are active" name="FilterPanel Component should show clear filters button when filters are active" time="0">
     </testcase>
-    <testcase classname="Header Component Accessibility should have proper ARIA landmarks" name="Header Component Accessibility should have proper ARIA landmarks" time="0">
+    <testcase classname="FilterPanel Component should not show clear filters button when no filters are active" name="FilterPanel Component should not show clear filters button when no filters are active" time="0">
     </testcase>
-    <testcase classname="Header Component Accessibility should have proper heading hierarchy" name="Header Component Accessibility should have proper heading hierarchy" time="0">
+    <testcase classname="FilterPanel Component should call onResetFilters when clear button is clicked" name="FilterPanel Component should call onResetFilters when clear button is clicked" time="0">
     </testcase>
-    <testcase classname="Header Component Accessibility should support keyboard navigation" name="Header Component Accessibility should support keyboard navigation" time="0">
+    <testcase classname="FilterPanel Component should call onApplyFilters when apply button is clicked" name="FilterPanel Component should call onApplyFilters when apply button is clicked" time="0">
     </testcase>
-    <testcase classname="Header Component Accessibility should have accessible navigation menu" name="Header Component Accessibility should have accessible navigation menu" time="0">
+    <testcase classname="FilterPanel Component should handle employee range filter changes" name="FilterPanel Component should handle employee range filter changes" time="0.001">
     </testcase>
-    <testcase classname="Header Component Styling and Layout should apply correct styled components" name="Header Component Styling and Layout should apply correct styled components" time="0">
+    <testcase classname="FilterPanel Component should have proper form labels and accessibility attributes" name="FilterPanel Component should have proper form labels and accessibility attributes" time="0">
     </testcase>
-    <testcase classname="Header Component Styling and Layout should render title with correct styling" name="Header Component Styling and Layout should render title with correct styling" time="0">
+    <testcase classname="FilterPanel Component should support keyboard navigation" name="FilterPanel Component should support keyboard navigation" time="0">
     </testcase>
-    <testcase classname="Header Component Styling and Layout should render subtitle with correct styling" name="Header Component Styling and Layout should render subtitle with correct styling" time="0">
-    </testcase>
-    <testcase classname="Header Component Responsive Behavior should handle mobile viewport" name="Header Component Responsive Behavior should handle mobile viewport" time="0">
-    </testcase>
-    <testcase classname="Header Component Responsive Behavior should handle desktop viewport" name="Header Component Responsive Behavior should handle desktop viewport" time="0">
-    </testcase>
-    <testcase classname="Header Component Performance should render efficiently" name="Header Component Performance should render efficiently" time="0">
-    </testcase>
-    <testcase classname="Header Component Performance should not cause unnecessary re-renders" name="Header Component Performance should not cause unnecessary re-renders" time="0">
+    <testcase classname="FilterPanel Component should render filter grid layout correctly" name="FilterPanel Component should render filter grid layout correctly" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="LoadingSpinner Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.755" tests="20">
-    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with default props" name="LoadingSpinner Component Default LoadingSpinner should render with default props" time="0.007">
+  <testsuite name="Pagination Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.299" tests="4">
+    <testcase classname="Pagination Component Basic Rendering should render pagination component" name="Pagination Component Basic Rendering should render pagination component" time="0.007">
     </testcase>
-    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with custom message" name="LoadingSpinner Component Default LoadingSpinner should render with custom message" time="0">
+    <testcase classname="Pagination Component Basic Rendering should display current page number" name="Pagination Component Basic Rendering should display current page number" time="0.001">
     </testcase>
-    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with different sizes" name="LoadingSpinner Component Default LoadingSpinner should render with different sizes" time="0.001">
+    <testcase classname="Pagination Component Basic Rendering should display total pages" name="Pagination Component Basic Rendering should display total pages" time="0">
     </testcase>
-    <testcase classname="LoadingSpinner Component Default LoadingSpinner should apply custom className" name="LoadingSpinner Component Default LoadingSpinner should apply custom className" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Default LoadingSpinner should not render message when empty string provided" name="LoadingSpinner Component Default LoadingSpinner should not render message when empty string provided" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Size Variants should render small spinner correctly" name="LoadingSpinner Component Size Variants should render small spinner correctly" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Size Variants should render medium spinner correctly (default)" name="LoadingSpinner Component Size Variants should render medium spinner correctly (default)" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Size Variants should render large spinner correctly" name="LoadingSpinner Component Size Variants should render large spinner correctly" time="0.001">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Animation Behavior should have spinning animation" name="LoadingSpinner Component Animation Behavior should have spinning animation" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Animation Behavior should maintain smooth animation during re-renders" name="LoadingSpinner Component Animation Behavior should maintain smooth animation during re-renders" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Accessibility should have proper ARIA attributes" name="LoadingSpinner Component Accessibility should have proper ARIA attributes" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Accessibility should provide accessible label for screen readers" name="LoadingSpinner Component Accessibility should provide accessible label for screen readers" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Accessibility should hide decorative spinner from screen readers" name="LoadingSpinner Component Accessibility should hide decorative spinner from screen readers" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Performance should render efficiently" name="LoadingSpinner Component Performance should render efficiently" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Performance should not cause memory leaks with animations" name="LoadingSpinner Component Performance should not cause memory leaks with animations" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Edge Cases should handle very long messages gracefully" name="LoadingSpinner Component Edge Cases should handle very long messages gracefully" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Edge Cases should handle undefined message prop" name="LoadingSpinner Component Edge Cases should handle undefined message prop" time="0.001">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Edge Cases should handle null message prop" name="LoadingSpinner Component Edge Cases should handle null message prop" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Theme and Styling should apply theme colors correctly" name="LoadingSpinner Component Theme and Styling should apply theme colors correctly" time="0">
-    </testcase>
-    <testcase classname="LoadingSpinner Component Theme and Styling should respond to dark mode" name="LoadingSpinner Component Theme and Styling should respond to dark mode" time="0">
+    <testcase classname="Pagination Component Basic Rendering should render previous and next buttons" name="Pagination Component Basic Rendering should render previous and next buttons" time="0.001">
     </testcase>
   </testsuite>
-  <testsuite name="SearchBar Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.758" tests="20">
-    <testcase classname="SearchBar Component Basic Rendering should render search input with placeholder" name="SearchBar Component Basic Rendering should render search input with placeholder" time="0.008">
+  <testsuite name="SearchBar Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.334" tests="20">
+    <testcase classname="SearchBar Component Basic Rendering should render search input with placeholder" name="SearchBar Component Basic Rendering should render search input with placeholder" time="0.005">
     </testcase>
     <testcase classname="SearchBar Component Basic Rendering should render search button" name="SearchBar Component Basic Rendering should render search button" time="0.001">
     </testcase>
@@ -101,15 +61,15 @@
     </testcase>
     <testcase classname="SearchBar Component Search Suggestions should display suggestions when available" name="SearchBar Component Search Suggestions should display suggestions when available" time="0">
     </testcase>
-    <testcase classname="SearchBar Component Search Suggestions should handle suggestion selection" name="SearchBar Component Search Suggestions should handle suggestion selection" time="0">
+    <testcase classname="SearchBar Component Search Suggestions should handle suggestion selection" name="SearchBar Component Search Suggestions should handle suggestion selection" time="0.001">
     </testcase>
-    <testcase classname="SearchBar Component Search Suggestions should hide suggestions when input loses focus" name="SearchBar Component Search Suggestions should hide suggestions when input loses focus" time="0.001">
+    <testcase classname="SearchBar Component Search Suggestions should hide suggestions when input loses focus" name="SearchBar Component Search Suggestions should hide suggestions when input loses focus" time="0">
     </testcase>
     <testcase classname="SearchBar Component Loading States should show loading indicator when searching" name="SearchBar Component Loading States should show loading indicator when searching" time="0">
     </testcase>
     <testcase classname="SearchBar Component Loading States should disable search button when loading" name="SearchBar Component Loading States should disable search button when loading" time="0">
     </testcase>
-    <testcase classname="SearchBar Component Error Handling should display error message when search fails" name="SearchBar Component Error Handling should display error message when search fails" time="0.001">
+    <testcase classname="SearchBar Component Error Handling should display error message when search fails" name="SearchBar Component Error Handling should display error message when search fails" time="0">
     </testcase>
     <testcase classname="SearchBar Component Error Handling should clear error when new search is initiated" name="SearchBar Component Error Handling should clear error when new search is initiated" time="0">
     </testcase>
@@ -119,85 +79,25 @@
     </testcase>
     <testcase classname="SearchBar Component Accessibility should announce suggestions to screen readers" name="SearchBar Component Accessibility should announce suggestions to screen readers" time="0">
     </testcase>
-    <testcase classname="SearchBar Component Performance should debounce search requests" name="SearchBar Component Performance should debounce search requests" time="0.002">
+    <testcase classname="SearchBar Component Performance should debounce search requests" name="SearchBar Component Performance should debounce search requests" time="0.005">
     </testcase>
     <testcase classname="SearchBar Component Performance should cancel previous search requests" name="SearchBar Component Performance should cancel previous search requests" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Pagination Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.778" tests="29">
-    <testcase classname="Pagination Component Basic Rendering should render pagination component" name="Pagination Component Basic Rendering should render pagination component" time="0.008">
-    </testcase>
-    <testcase classname="Pagination Component Basic Rendering should display current page number" name="Pagination Component Basic Rendering should display current page number" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Basic Rendering should display total pages" name="Pagination Component Basic Rendering should display total pages" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Basic Rendering should render previous and next buttons" name="Pagination Component Basic Rendering should render previous and next buttons" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Page Navigation should call onPageChange when page number is clicked" name="Pagination Component Page Navigation should call onPageChange when page number is clicked" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Page Navigation should call onPageChange when next button is clicked" name="Pagination Component Page Navigation should call onPageChange when next button is clicked" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Page Navigation should call onPageChange when previous button is clicked" name="Pagination Component Page Navigation should call onPageChange when previous button is clicked" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Page Navigation should handle first page navigation" name="Pagination Component Page Navigation should handle first page navigation" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Page Navigation should handle last page navigation" name="Pagination Component Page Navigation should handle last page navigation" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Button States should disable previous buttons on first page" name="Pagination Component Button States should disable previous buttons on first page" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Button States should disable next buttons on last page" name="Pagination Component Button States should disable next buttons on last page" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Button States should enable all buttons on middle pages" name="Pagination Component Button States should enable all buttons on middle pages" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Page Range Display should show ellipsis for large page counts" name="Pagination Component Page Range Display should show ellipsis for large page counts" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Page Range Display should show pages around current page" name="Pagination Component Page Range Display should show pages around current page" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Page Range Display should always show first and last page" name="Pagination Component Page Range Display should always show first and last page" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Keyboard Navigation should support arrow key navigation" name="Pagination Component Keyboard Navigation should support arrow key navigation" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Keyboard Navigation should support Home and End keys" name="Pagination Component Keyboard Navigation should support Home and End keys" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Keyboard Navigation should handle Enter key on page buttons" name="Pagination Component Keyboard Navigation should handle Enter key on page buttons" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Edge Cases should handle single page" name="Pagination Component Edge Cases should handle single page" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Edge Cases should handle zero pages" name="Pagination Component Edge Cases should handle zero pages" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Edge Cases should handle invalid current page" name="Pagination Component Edge Cases should handle invalid current page" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Edge Cases should handle current page exceeding total pages" name="Pagination Component Edge Cases should handle current page exceeding total pages" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Customization should render with custom page size info" name="Pagination Component Customization should render with custom page size info" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Customization should render with custom labels" name="Pagination Component Customization should render with custom labels" time="0.001">
-    </testcase>
-    <testcase classname="Pagination Component Customization should apply custom className" name="Pagination Component Customization should apply custom className" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Accessibility should have proper ARIA labels" name="Pagination Component Accessibility should have proper ARIA labels" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Accessibility should indicate current page to screen readers" name="Pagination Component Accessibility should indicate current page to screen readers" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Accessibility should have descriptive button labels" name="Pagination Component Accessibility should have descriptive button labels" time="0">
-    </testcase>
-    <testcase classname="Pagination Component Accessibility should support screen reader navigation" name="Pagination Component Accessibility should support screen reader navigation" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="Select Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.785" tests="31">
-    <testcase classname="Select Component Basic Rendering should render select element" name="Select Component Basic Rendering should render select element" time="0.01">
+  <testsuite name="Select Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.32" tests="31">
+    <testcase classname="Select Component Basic Rendering should render select element" name="Select Component Basic Rendering should render select element" time="0.009">
     </testcase>
     <testcase classname="Select Component Basic Rendering should render all options" name="Select Component Basic Rendering should render all options" time="0.001">
     </testcase>
     <testcase classname="Select Component Basic Rendering should render with placeholder option" name="Select Component Basic Rendering should render with placeholder option" time="0">
     </testcase>
-    <testcase classname="Select Component Basic Rendering should render with default selected value" name="Select Component Basic Rendering should render with default selected value" time="0.001">
+    <testcase classname="Select Component Basic Rendering should render with default selected value" name="Select Component Basic Rendering should render with default selected value" time="0">
     </testcase>
     <testcase classname="Select Component Option Rendering should render options with correct values and labels" name="Select Component Option Rendering should render options with correct values and labels" time="0">
     </testcase>
     <testcase classname="Select Component Option Rendering should handle empty options array" name="Select Component Option Rendering should handle empty options array" time="0.001">
     </testcase>
-    <testcase classname="Select Component Option Rendering should handle options with complex objects" name="Select Component Option Rendering should handle options with complex objects" time="0.002">
+    <testcase classname="Select Component Option Rendering should handle options with complex objects" name="Select Component Option Rendering should handle options with complex objects" time="0">
     </testcase>
     <testcase classname="Select Component State Management should call onChange when option is selected" name="Select Component State Management should call onChange when option is selected" time="0.001">
     </testcase>
@@ -209,23 +109,23 @@
     </testcase>
     <testcase classname="Select Component Size and Styling should render medium select (default)" name="Select Component Size and Styling should render medium select (default)" time="0.001">
     </testcase>
-    <testcase classname="Select Component Size and Styling should render large select" name="Select Component Size and Styling should render large select" time="0.001">
+    <testcase classname="Select Component Size and Styling should render large select" name="Select Component Size and Styling should render large select" time="0">
     </testcase>
     <testcase classname="Select Component Size and Styling should apply custom className" name="Select Component Size and Styling should apply custom className" time="0">
     </testcase>
-    <testcase classname="Select Component Label and Description should render with label" name="Select Component Label and Description should render with label" time="0">
+    <testcase classname="Select Component Label and Description should render with label" name="Select Component Label and Description should render with label" time="0.001">
     </testcase>
-    <testcase classname="Select Component Label and Description should render with description" name="Select Component Label and Description should render with description" time="0.001">
+    <testcase classname="Select Component Label and Description should render with description" name="Select Component Label and Description should render with description" time="0">
     </testcase>
     <testcase classname="Select Component Label and Description should associate label with select" name="Select Component Label and Description should associate label with select" time="0">
     </testcase>
     <testcase classname="Select Component States should render disabled select" name="Select Component States should render disabled select" time="0">
     </testcase>
-    <testcase classname="Select Component States should render with error state" name="Select Component States should render with error state" time="0.002">
+    <testcase classname="Select Component States should render with error state" name="Select Component States should render with error state" time="0">
     </testcase>
     <testcase classname="Select Component States should render required select" name="Select Component States should render required select" time="0">
     </testcase>
-    <testcase classname="Select Component User Interactions should open dropdown on click" name="Select Component User Interactions should open dropdown on click" time="0.001">
+    <testcase classname="Select Component User Interactions should open dropdown on click" name="Select Component User Interactions should open dropdown on click" time="0">
     </testcase>
     <testcase classname="Select Component User Interactions should navigate options with keyboard" name="Select Component User Interactions should navigate options with keyboard" time="0">
     </testcase>
@@ -233,23 +133,109 @@
     </testcase>
     <testcase classname="Select Component Multi-Select should handle multiple selections" name="Select Component Multi-Select should handle multiple selections" time="0">
     </testcase>
-    <testcase classname="Select Component Multi-Select should call onChange with array for multi-select" name="Select Component Multi-Select should call onChange with array for multi-select" time="0.001">
+    <testcase classname="Select Component Multi-Select should call onChange with array for multi-select" name="Select Component Multi-Select should call onChange with array for multi-select" time="0">
     </testcase>
-    <testcase classname="Select Component Accessibility should have proper ARIA attributes" name="Select Component Accessibility should have proper ARIA attributes" time="0">
+    <testcase classname="Select Component Accessibility should have proper ARIA attributes" name="Select Component Accessibility should have proper ARIA attributes" time="0.001">
     </testcase>
-    <testcase classname="Select Component Accessibility should support screen reader navigation" name="Select Component Accessibility should support screen reader navigation" time="0">
+    <testcase classname="Select Component Accessibility should support screen reader navigation" name="Select Component Accessibility should support screen reader navigation" time="0.001">
     </testcase>
-    <testcase classname="Select Component Accessibility should announce error to screen readers" name="Select Component Accessibility should announce error to screen readers" time="0.001">
+    <testcase classname="Select Component Accessibility should announce error to screen readers" name="Select Component Accessibility should announce error to screen readers" time="0">
     </testcase>
     <testcase classname="Select Component Accessibility should use aria-describedby for descriptions" name="Select Component Accessibility should use aria-describedby for descriptions" time="0">
     </testcase>
-    <testcase classname="Select Component Performance should handle large number of options efficiently" name="Select Component Performance should handle large number of options efficiently" time="0">
+    <testcase classname="Select Component Performance should handle large number of options efficiently" name="Select Component Performance should handle large number of options efficiently" time="0.001">
     </testcase>
     <testcase classname="Select Component Performance should use virtualization for large option lists" name="Select Component Performance should use virtualization for large option lists" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="EntityCard Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.809" tests="37">
-    <testcase classname="EntityCard Component Basic Rendering should render entity card with basic information" name="EntityCard Component Basic Rendering should render entity card with basic information" time="0.014">
+  <testsuite name="CompanyDetailModal Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.321" tests="10">
+    <testcase classname="CompanyDetailModal Component should render modal with company details" name="CompanyDetailModal Component should render modal with company details" time="0.008">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should display all company information sections" name="CompanyDetailModal Component should display all company information sections" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should format ABN and ACN with proper spacing" name="CompanyDetailModal Component should format ABN and ACN with proper spacing" time="0.001">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should display business names section when available" name="CompanyDetailModal Component should display business names section when available" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should call onClose when close button is clicked" name="CompanyDetailModal Component should call onClose when close button is clicked" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should close modal when ESC key is pressed" name="CompanyDetailModal Component should close modal when ESC key is pressed" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should close modal when clicking outside modal content" name="CompanyDetailModal Component should close modal when clicking outside modal content" time="0.001">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should prevent body scroll when modal is open" name="CompanyDetailModal Component should prevent body scroll when modal is open" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should restore body scroll when modal is unmounted" name="CompanyDetailModal Component should restore body scroll when modal is unmounted" time="0">
+    </testcase>
+    <testcase classname="CompanyDetailModal Component should display formatted dates" name="CompanyDetailModal Component should display formatted dates" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="ResultsPanel Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.385" tests="23">
+    <testcase classname="ResultsPanel Component Basic Rendering should render results panel with entities" name="ResultsPanel Component Basic Rendering should render results panel with entities" time="0.006">
+    </testcase>
+    <testcase classname="ResultsPanel Component Basic Rendering should render all provided entities" name="ResultsPanel Component Basic Rendering should render all provided entities" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Basic Rendering should display entity count" name="ResultsPanel Component Basic Rendering should display entity count" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Basic Rendering should render empty state when no entities provided" name="ResultsPanel Component Basic Rendering should render empty state when no entities provided" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Interactions should call handleResultClick when entity is clicked" name="ResultsPanel Component Entity Interactions should call handleResultClick when entity is clicked" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Interactions should handle keyboard navigation" name="ResultsPanel Component Entity Interactions should handle keyboard navigation" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Interactions should support arrow key navigation between entities" name="ResultsPanel Component Entity Interactions should support arrow key navigation between entities" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Display should display entity basic information" name="ResultsPanel Component Entity Display should display entity basic information" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Display should display entity address information" name="ResultsPanel Component Entity Display should display entity address information" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Display should format ABN correctly" name="ResultsPanel Component Entity Display should format ABN correctly" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Entity Display should display employee count and revenue band" name="ResultsPanel Component Entity Display should display employee count and revenue band" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Sorting and Filtering should display entities in provided order" name="ResultsPanel Component Sorting and Filtering should display entities in provided order" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Sorting and Filtering should handle entities with missing information gracefully" name="ResultsPanel Component Sorting and Filtering should handle entities with missing information gracefully" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Pagination should handle large numbers of entities" name="ResultsPanel Component Pagination should handle large numbers of entities" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Pagination should implement virtual scrolling for performance" name="ResultsPanel Component Pagination should implement virtual scrolling for performance" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Loading and Error States should display loading state" name="ResultsPanel Component Loading and Error States should display loading state" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Loading and Error States should display error state" name="ResultsPanel Component Loading and Error States should display error state" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Loading and Error States should allow retry when error occurs" name="ResultsPanel Component Loading and Error States should allow retry when error occurs" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Accessibility should have proper ARIA labels and roles" name="ResultsPanel Component Accessibility should have proper ARIA labels and roles" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Accessibility should support screen reader announcements" name="ResultsPanel Component Accessibility should support screen reader announcements" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Accessibility should have proper keyboard navigation" name="ResultsPanel Component Accessibility should have proper keyboard navigation" time="0.001">
+    </testcase>
+    <testcase classname="ResultsPanel Component Performance should render efficiently with many entities" name="ResultsPanel Component Performance should render efficiently with many entities" time="0">
+    </testcase>
+    <testcase classname="ResultsPanel Component Performance should not re-render unnecessarily" name="ResultsPanel Component Performance should not re-render unnecessarily" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="CompanyCard Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.351" tests="7">
+    <testcase classname="CompanyCard Component should render without crashing" name="CompanyCard Component should render without crashing" time="0.005">
+    </testcase>
+    <testcase classname="CompanyCard Component should display company name and ABN" name="CompanyCard Component should display company name and ABN" time="0">
+    </testcase>
+    <testcase classname="CompanyCard Component should display company address" name="CompanyCard Component should display company address" time="0.001">
+    </testcase>
+    <testcase classname="CompanyCard Component should display employee count and revenue information" name="CompanyCard Component should display employee count and revenue information" time="0">
+    </testcase>
+    <testcase classname="CompanyCard Component should call onViewDetails when clicked" name="CompanyCard Component should call onViewDetails when clicked" time="0">
+    </testcase>
+    <testcase classname="CompanyCard Component should support keyboard navigation" name="CompanyCard Component should support keyboard navigation" time="0">
+    </testcase>
+    <testcase classname="CompanyCard Component should have proper ARIA attributes" name="CompanyCard Component should have proper ARIA attributes" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="EntityCard Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.377" tests="37">
+    <testcase classname="EntityCard Component Basic Rendering should render entity card with basic information" name="EntityCard Component Basic Rendering should render entity card with basic information" time="0.007">
     </testcase>
     <testcase classname="EntityCard Component Basic Rendering should render entity type and status" name="EntityCard Component Basic Rendering should render entity type and status" time="0.001">
     </testcase>
@@ -261,11 +247,11 @@
     </testcase>
     <testcase classname="EntityCard Component Conditional Rendering should render without business names" name="EntityCard Component Conditional Rendering should render without business names" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Conditional Rendering should render without GST information" name="EntityCard Component Conditional Rendering should render without GST information" time="0.002">
+    <testcase classname="EntityCard Component Conditional Rendering should render without GST information" name="EntityCard Component Conditional Rendering should render without GST information" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Conditional Rendering should render deregistered status" name="EntityCard Component Conditional Rendering should render deregistered status" time="0.001">
+    <testcase classname="EntityCard Component Conditional Rendering should render deregistered status" name="EntityCard Component Conditional Rendering should render deregistered status" time="0.003">
     </testcase>
-    <testcase classname="EntityCard Component Conditional Rendering should render without contact information" name="EntityCard Component Conditional Rendering should render without contact information" time="0.001">
+    <testcase classname="EntityCard Component Conditional Rendering should render without contact information" name="EntityCard Component Conditional Rendering should render without contact information" time="0">
     </testcase>
     <testcase classname="EntityCard Component Selection State should render as selected when isSelected is true" name="EntityCard Component Selection State should render as selected when isSelected is true" time="0.001">
     </testcase>
@@ -273,9 +259,9 @@
     </testcase>
     <testcase classname="EntityCard Component Selection State should apply selection styles correctly" name="EntityCard Component Selection State should apply selection styles correctly" time="0">
     </testcase>
-    <testcase classname="EntityCard Component User Interactions should call onClick when card is clicked" name="EntityCard Component User Interactions should call onClick when card is clicked" time="0.002">
+    <testcase classname="EntityCard Component User Interactions should call onClick when card is clicked" name="EntityCard Component User Interactions should call onClick when card is clicked" time="0">
     </testcase>
-    <testcase classname="EntityCard Component User Interactions should handle keyboard navigation" name="EntityCard Component User Interactions should handle keyboard navigation" time="0.001">
+    <testcase classname="EntityCard Component User Interactions should handle keyboard navigation" name="EntityCard Component User Interactions should handle keyboard navigation" time="0">
     </testcase>
     <testcase classname="EntityCard Component User Interactions should not call onClick when disabled" name="EntityCard Component User Interactions should not call onClick when disabled" time="0">
     </testcase>
@@ -283,23 +269,23 @@
     </testcase>
     <testcase classname="EntityCard Component Data Formatting should format ABN correctly" name="EntityCard Component Data Formatting should format ABN correctly" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Data Formatting should format ACN correctly" name="EntityCard Component Data Formatting should format ACN correctly" time="0.001">
+    <testcase classname="EntityCard Component Data Formatting should format ACN correctly" name="EntityCard Component Data Formatting should format ACN correctly" time="0">
     </testcase>
     <testcase classname="EntityCard Component Data Formatting should format dates correctly" name="EntityCard Component Data Formatting should format dates correctly" time="0">
     </testcase>
     <testcase classname="EntityCard Component Data Formatting should handle missing date fields" name="EntityCard Component Data Formatting should handle missing date fields" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Badge Rendering should render status badge with correct variant" name="EntityCard Component Badge Rendering should render status badge with correct variant" time="0.001">
+    <testcase classname="EntityCard Component Badge Rendering should render status badge with correct variant" name="EntityCard Component Badge Rendering should render status badge with correct variant" time="0">
     </testcase>
     <testcase classname="EntityCard Component Badge Rendering should render deregistered status badge" name="EntityCard Component Badge Rendering should render deregistered status badge" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Badge Rendering should render entity type badge" name="EntityCard Component Badge Rendering should render entity type badge" time="0.002">
+    <testcase classname="EntityCard Component Badge Rendering should render entity type badge" name="EntityCard Component Badge Rendering should render entity type badge" time="0">
     </testcase>
     <testcase classname="EntityCard Component Badge Rendering should render GST status badge" name="EntityCard Component Badge Rendering should render GST status badge" time="0">
     </testcase>
     <testcase classname="EntityCard Component Accessibility should have proper ARIA attributes" name="EntityCard Component Accessibility should have proper ARIA attributes" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Accessibility should be focusable" name="EntityCard Component Accessibility should be focusable" time="0.002">
+    <testcase classname="EntityCard Component Accessibility should be focusable" name="EntityCard Component Accessibility should be focusable" time="0.001">
     </testcase>
     <testcase classname="EntityCard Component Accessibility should announce selection state to screen readers" name="EntityCard Component Accessibility should announce selection state to screen readers" time="0">
     </testcase>
@@ -307,7 +293,7 @@
     </testcase>
     <testcase classname="EntityCard Component Layout and Styling should apply compact layout when specified" name="EntityCard Component Layout and Styling should apply compact layout when specified" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Layout and Styling should apply detailed layout by default" name="EntityCard Component Layout and Styling should apply detailed layout by default" time="0">
+    <testcase classname="EntityCard Component Layout and Styling should apply detailed layout by default" name="EntityCard Component Layout and Styling should apply detailed layout by default" time="0.001">
     </testcase>
     <testcase classname="EntityCard Component Layout and Styling should handle custom className" name="EntityCard Component Layout and Styling should handle custom className" time="0">
     </testcase>
@@ -315,365 +301,59 @@
     </testcase>
     <testcase classname="EntityCard Component Performance should not re-render unnecessarily" name="EntityCard Component Performance should not re-render unnecessarily" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Performance should handle large entity data efficiently" name="EntityCard Component Performance should handle large entity data efficiently" time="0">
+    <testcase classname="EntityCard Component Performance should handle large entity data efficiently" name="EntityCard Component Performance should handle large entity data efficiently" time="0.001">
     </testcase>
-    <testcase classname="EntityCard Component Error Handling should handle missing entity data gracefully" name="EntityCard Component Error Handling should handle missing entity data gracefully" time="0.001">
+    <testcase classname="EntityCard Component Error Handling should handle missing entity data gracefully" name="EntityCard Component Error Handling should handle missing entity data gracefully" time="0">
     </testcase>
-    <testcase classname="EntityCard Component Error Handling should handle null entity data" name="EntityCard Component Error Handling should handle null entity data" time="0.004">
+    <testcase classname="EntityCard Component Error Handling should handle null entity data" name="EntityCard Component Error Handling should handle null entity data" time="0">
     </testcase>
     <testcase classname="EntityCard Component Error Handling should display error state for corrupted data" name="EntityCard Component Error Handling should display error state for corrupted data" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="EmptyState Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.825" tests="15">
-    <testcase classname="EmptyState Component Default EmptyState should render with default props" name="EmptyState Component Default EmptyState should render with default props" time="0.006">
+  <testsuite name="LoadingSpinner Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.37" tests="20">
+    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with default props" name="LoadingSpinner Component Default LoadingSpinner should render with default props" time="0.006">
     </testcase>
-    <testcase classname="EmptyState Component Default EmptyState should render with custom title and description" name="EmptyState Component Default EmptyState should render with custom title and description" time="0">
+    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with custom message" name="LoadingSpinner Component Default LoadingSpinner should render with custom message" time="0">
     </testcase>
-    <testcase classname="EmptyState Component Default EmptyState should render with custom icon" name="EmptyState Component Default EmptyState should render with custom icon" time="0.001">
+    <testcase classname="LoadingSpinner Component Default LoadingSpinner should render with different sizes" name="LoadingSpinner Component Default LoadingSpinner should render with different sizes" time="0.001">
     </testcase>
-    <testcase classname="EmptyState Component Default EmptyState should render with action button" name="EmptyState Component Default EmptyState should render with action button" time="0.001">
+    <testcase classname="LoadingSpinner Component Default LoadingSpinner should apply custom className" name="LoadingSpinner Component Default LoadingSpinner should apply custom className" time="0">
     </testcase>
-    <testcase classname="EmptyState Component Default EmptyState should not render icon section when no icon provided" name="EmptyState Component Default EmptyState should not render icon section when no icon provided" time="0">
+    <testcase classname="LoadingSpinner Component Default LoadingSpinner should not render message when empty string provided" name="LoadingSpinner Component Default LoadingSpinner should not render message when empty string provided" time="0.001">
     </testcase>
-    <testcase classname="EmptyState Component Default EmptyState should not render action section when no action provided" name="EmptyState Component Default EmptyState should not render action section when no action provided" time="0">
+    <testcase classname="LoadingSpinner Component Size Variants should render small spinner correctly" name="LoadingSpinner Component Size Variants should render small spinner correctly" time="0">
     </testcase>
-    <testcase classname="EmptyState Component NoDataEmptyState should render no data empty state" name="EmptyState Component NoDataEmptyState should render no data empty state" time="0">
+    <testcase classname="LoadingSpinner Component Size Variants should render medium spinner correctly (default)" name="LoadingSpinner Component Size Variants should render medium spinner correctly (default)" time="0">
     </testcase>
-    <testcase classname="EmptyState Component NoDataEmptyState should render with check circle icon" name="EmptyState Component NoDataEmptyState should render with check circle icon" time="0">
+    <testcase classname="LoadingSpinner Component Size Variants should render large spinner correctly" name="LoadingSpinner Component Size Variants should render large spinner correctly" time="0.001">
     </testcase>
-    <testcase classname="EmptyState Component SearchEmptyState should render search empty state" name="EmptyState Component SearchEmptyState should render search empty state" time="0.001">
+    <testcase classname="LoadingSpinner Component Animation Behavior should have spinning animation" name="LoadingSpinner Component Animation Behavior should have spinning animation" time="0">
     </testcase>
-    <testcase classname="EmptyState Component SearchEmptyState should render with search icon" name="EmptyState Component SearchEmptyState should render with search icon" time="0">
+    <testcase classname="LoadingSpinner Component Animation Behavior should maintain smooth animation during re-renders" name="LoadingSpinner Component Animation Behavior should maintain smooth animation during re-renders" time="0">
     </testcase>
-    <testcase classname="EmptyState Component SearchEmptyState should render clear search button when onClearSearch provided" name="EmptyState Component SearchEmptyState should render clear search button when onClearSearch provided" time="0.001">
+    <testcase classname="LoadingSpinner Component Accessibility should have proper ARIA attributes" name="LoadingSpinner Component Accessibility should have proper ARIA attributes" time="0.001">
     </testcase>
-    <testcase classname="EmptyState Component SearchEmptyState should call onClearSearch when clear button clicked" name="EmptyState Component SearchEmptyState should call onClearSearch when clear button clicked" time="0">
+    <testcase classname="LoadingSpinner Component Accessibility should provide accessible label for screen readers" name="LoadingSpinner Component Accessibility should provide accessible label for screen readers" time="0">
     </testcase>
-    <testcase classname="EmptyState Component SearchEmptyState should not render clear search button when onClearSearch not provided" name="EmptyState Component SearchEmptyState should not render clear search button when onClearSearch not provided" time="0">
+    <testcase classname="LoadingSpinner Component Accessibility should hide decorative spinner from screen readers" name="LoadingSpinner Component Accessibility should hide decorative spinner from screen readers" time="0">
     </testcase>
-    <testcase classname="EmptyState Component Accessibility should have proper semantic structure" name="EmptyState Component Accessibility should have proper semantic structure" time="0">
+    <testcase classname="LoadingSpinner Component Performance should render efficiently" name="LoadingSpinner Component Performance should render efficiently" time="0">
     </testcase>
-    <testcase classname="EmptyState Component Accessibility should support keyboard navigation for action buttons" name="EmptyState Component Accessibility should support keyboard navigation for action buttons" time="0.001">
+    <testcase classname="LoadingSpinner Component Performance should not cause memory leaks with animations" name="LoadingSpinner Component Performance should not cause memory leaks with animations" time="0">
     </testcase>
-  </testsuite>
-  <testsuite name="Button Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.829" tests="29">
-    <testcase classname="Button Component Basic Rendering should render button with text" name="Button Component Basic Rendering should render button with text" time="0.006">
+    <testcase classname="LoadingSpinner Component Edge Cases should handle very long messages gracefully" name="LoadingSpinner Component Edge Cases should handle very long messages gracefully" time="0">
     </testcase>
-    <testcase classname="Button Component Basic Rendering should render button with custom className" name="Button Component Basic Rendering should render button with custom className" time="0">
+    <testcase classname="LoadingSpinner Component Edge Cases should handle undefined message prop" name="LoadingSpinner Component Edge Cases should handle undefined message prop" time="0">
     </testcase>
-    <testcase classname="Button Component Basic Rendering should render disabled button" name="Button Component Basic Rendering should render disabled button" time="0.001">
+    <testcase classname="LoadingSpinner Component Edge Cases should handle null message prop" name="LoadingSpinner Component Edge Cases should handle null message prop" time="0.001">
     </testcase>
-    <testcase classname="Button Component Basic Rendering should render with different button types" name="Button Component Basic Rendering should render with different button types" time="0">
+    <testcase classname="LoadingSpinner Component Theme and Styling should apply theme colors correctly" name="LoadingSpinner Component Theme and Styling should apply theme colors correctly" time="0">
     </testcase>
-    <testcase classname="Button Component Button Variants should render primary button variant" name="Button Component Button Variants should render primary button variant" time="0.001">
-    </testcase>
-    <testcase classname="Button Component Button Variants should render secondary button variant" name="Button Component Button Variants should render secondary button variant" time="0">
-    </testcase>
-    <testcase classname="Button Component Button Variants should render outline button variant" name="Button Component Button Variants should render outline button variant" time="0">
-    </testcase>
-    <testcase classname="Button Component Button Variants should render ghost button variant" name="Button Component Button Variants should render ghost button variant" time="0">
-    </testcase>
-    <testcase classname="Button Component Button Sizes should render small button" name="Button Component Button Sizes should render small button" time="0">
-    </testcase>
-    <testcase classname="Button Component Button Sizes should render medium button (default)" name="Button Component Button Sizes should render medium button (default)" time="0">
-    </testcase>
-    <testcase classname="Button Component Button Sizes should render large button" name="Button Component Button Sizes should render large button" time="0.001">
-    </testcase>
-    <testcase classname="Button Component Button with Icons should render button with left icon" name="Button Component Button with Icons should render button with left icon" time="0">
-    </testcase>
-    <testcase classname="Button Component Button with Icons should render button with right icon" name="Button Component Button with Icons should render button with right icon" time="0.001">
-    </testcase>
-    <testcase classname="Button Component Button with Icons should render icon-only button" name="Button Component Button with Icons should render icon-only button" time="0">
-    </testcase>
-    <testcase classname="Button Component User Interactions should call onClick when clicked" name="Button Component User Interactions should call onClick when clicked" time="0.001">
-    </testcase>
-    <testcase classname="Button Component User Interactions should not call onClick when disabled" name="Button Component User Interactions should not call onClick when disabled" time="0">
-    </testcase>
-    <testcase classname="Button Component User Interactions should handle keyboard events (Enter)" name="Button Component User Interactions should handle keyboard events (Enter)" time="0">
-    </testcase>
-    <testcase classname="Button Component User Interactions should handle keyboard events (Space)" name="Button Component User Interactions should handle keyboard events (Space)" time="0">
-    </testcase>
-    <testcase classname="Button Component Loading State should render loading button" name="Button Component Loading State should render loading button" time="0">
-    </testcase>
-    <testcase classname="Button Component Loading State should show loading text when provided" name="Button Component Loading State should show loading text when provided" time="0">
-    </testcase>
-    <testcase classname="Button Component Loading State should not call onClick when loading" name="Button Component Loading State should not call onClick when loading" time="0">
-    </testcase>
-    <testcase classname="Button Component Accessibility should have proper ARIA attributes" name="Button Component Accessibility should have proper ARIA attributes" time="0.001">
-    </testcase>
-    <testcase classname="Button Component Accessibility should support focus management" name="Button Component Accessibility should support focus management" time="0">
-    </testcase>
-    <testcase classname="Button Component Accessibility should have proper disabled state accessibility" name="Button Component Accessibility should have proper disabled state accessibility" time="0">
-    </testcase>
-    <testcase classname="Button Component Accessibility should support screen readers for loading state" name="Button Component Accessibility should support screen readers for loading state" time="0">
-    </testcase>
-    <testcase classname="Button Component Form Integration should work as submit button" name="Button Component Form Integration should work as submit button" time="0.001">
-    </testcase>
-    <testcase classname="Button Component Form Integration should work as reset button" name="Button Component Form Integration should work as reset button" time="0">
-    </testcase>
-    <testcase classname="Button Component Styling and Theming should apply custom styles" name="Button Component Styling and Theming should apply custom styles" time="0">
-    </testcase>
-    <testcase classname="Button Component Styling and Theming should support CSS-in-JS themes" name="Button Component Styling and Theming should support CSS-in-JS themes" time="0">
+    <testcase classname="LoadingSpinner Component Theme and Styling should respond to dark mode" name="LoadingSpinner Component Theme and Styling should respond to dark mode" time="0">
     </testcase>
   </testsuite>
-  <testsuite name="Modal Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.83" tests="31">
-    <testcase classname="Modal Component Basic Rendering should render modal when isOpen is true" name="Modal Component Basic Rendering should render modal when isOpen is true" time="0.01">
-    </testcase>
-    <testcase classname="Modal Component Basic Rendering should not render modal when isOpen is false" name="Modal Component Basic Rendering should not render modal when isOpen is false" time="0">
-    </testcase>
-    <testcase classname="Modal Component Basic Rendering should render modal with title" name="Modal Component Basic Rendering should render modal with title" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Basic Rendering should render close button by default" name="Modal Component Basic Rendering should render close button by default" time="0.003">
-    </testcase>
-    <testcase classname="Modal Component Basic Rendering should not render close button when showCloseButton is false" name="Modal Component Basic Rendering should not render close button when showCloseButton is false" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Size Variants should render small modal" name="Modal Component Size Variants should render small modal" time="0">
-    </testcase>
-    <testcase classname="Modal Component Size Variants should render medium modal (default)" name="Modal Component Size Variants should render medium modal (default)" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Size Variants should render large modal" name="Modal Component Size Variants should render large modal" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Size Variants should render fullscreen modal" name="Modal Component Size Variants should render fullscreen modal" time="0">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should call onClose when close button is clicked" name="Modal Component User Interactions should call onClose when close button is clicked" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should call onClose when overlay is clicked" name="Modal Component User Interactions should call onClose when overlay is clicked" time="0">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should not close when modal content is clicked" name="Modal Component User Interactions should not close when modal content is clicked" time="0">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should call onClose when Escape key is pressed" name="Modal Component User Interactions should call onClose when Escape key is pressed" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should not close on Escape when closeOnEscape is false" name="Modal Component User Interactions should not close on Escape when closeOnEscape is false" time="0">
-    </testcase>
-    <testcase classname="Modal Component User Interactions should not close on overlay click when closeOnOverlayClick is false" name="Modal Component User Interactions should not close on overlay click when closeOnOverlayClick is false" time="0">
-    </testcase>
-    <testcase classname="Modal Component Body Scroll Management should prevent body scroll when modal is open" name="Modal Component Body Scroll Management should prevent body scroll when modal is open" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Body Scroll Management should restore body scroll when modal is closed" name="Modal Component Body Scroll Management should restore body scroll when modal is closed" time="0">
-    </testcase>
-    <testcase classname="Modal Component Body Scroll Management should restore body scroll when component unmounts" name="Modal Component Body Scroll Management should restore body scroll when component unmounts" time="0">
-    </testcase>
-    <testcase classname="Modal Component Focus Management should focus modal when opened" name="Modal Component Focus Management should focus modal when opened" time="0">
-    </testcase>
-    <testcase classname="Modal Component Focus Management should trap focus within modal" name="Modal Component Focus Management should trap focus within modal" time="0.002">
-    </testcase>
-    <testcase classname="Modal Component Focus Management should return focus to trigger element when closed" name="Modal Component Focus Management should return focus to trigger element when closed" time="0">
-    </testcase>
-    <testcase classname="Modal Component Animation should apply enter animation classes" name="Modal Component Animation should apply enter animation classes" time="0">
-    </testcase>
-    <testcase classname="Modal Component Animation should apply exit animation classes when closing" name="Modal Component Animation should apply exit animation classes when closing" time="0.001">
-    </testcase>
-    <testcase classname="Modal Component Animation should handle animation duration" name="Modal Component Animation should handle animation duration" time="0">
-    </testcase>
-    <testcase classname="Modal Component Portal Rendering should render modal in document.body by default" name="Modal Component Portal Rendering should render modal in document.body by default" time="0">
-    </testcase>
-    <testcase classname="Modal Component Portal Rendering should render modal in custom container" name="Modal Component Portal Rendering should render modal in custom container" time="0">
-    </testcase>
-    <testcase classname="Modal Component Accessibility should have proper ARIA attributes" name="Modal Component Accessibility should have proper ARIA attributes" time="0">
-    </testcase>
-    <testcase classname="Modal Component Accessibility should support aria-describedby" name="Modal Component Accessibility should support aria-describedby" time="0">
-    </testcase>
-    <testcase classname="Modal Component Accessibility should announce modal to screen readers" name="Modal Component Accessibility should announce modal to screen readers" time="0">
-    </testcase>
-    <testcase classname="Modal Component Accessibility should support keyboard navigation" name="Modal Component Accessibility should support keyboard navigation" time="0">
-    </testcase>
-    <testcase classname="Modal Component Error Handling should handle errors in modal content gracefully" name="Modal Component Error Handling should handle errors in modal content gracefully" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="Input Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="2.832" tests="38">
-    <testcase classname="Input Component Basic Rendering should render input field" name="Input Component Basic Rendering should render input field" time="0.008">
-    </testcase>
-    <testcase classname="Input Component Basic Rendering should render with placeholder" name="Input Component Basic Rendering should render with placeholder" time="0">
-    </testcase>
-    <testcase classname="Input Component Basic Rendering should render with default value" name="Input Component Basic Rendering should render with default value" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Basic Rendering should render with controlled value" name="Input Component Basic Rendering should render with controlled value" time="0">
-    </testcase>
-    <testcase classname="Input Component Input Types should render text input (default)" name="Input Component Input Types should render text input (default)" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Input Types should render email input" name="Input Component Input Types should render email input" time="0">
-    </testcase>
-    <testcase classname="Input Component Input Types should render password input" name="Input Component Input Types should render password input" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Input Types should render number input" name="Input Component Input Types should render number input" time="0">
-    </testcase>
-    <testcase classname="Input Component Input Types should render search input" name="Input Component Input Types should render search input" time="0">
-    </testcase>
-    <testcase classname="Input Component Input States should render disabled input" name="Input Component Input States should render disabled input" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Input States should render readonly input" name="Input Component Input States should render readonly input" time="0">
-    </testcase>
-    <testcase classname="Input Component Input States should render required input" name="Input Component Input States should render required input" time="0">
-    </testcase>
-    <testcase classname="Input Component Input States should render input with error state" name="Input Component Input States should render input with error state" time="0">
-    </testcase>
-    <testcase classname="Input Component Size Variants should render small input" name="Input Component Size Variants should render small input" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Size Variants should render medium input (default)" name="Input Component Size Variants should render medium input (default)" time="0">
-    </testcase>
-    <testcase classname="Input Component Size Variants should render large input" name="Input Component Size Variants should render large input" time="0">
-    </testcase>
-    <testcase classname="Input Component Label and Description should render with label" name="Input Component Label and Description should render with label" time="0">
-    </testcase>
-    <testcase classname="Input Component Label and Description should render with description" name="Input Component Label and Description should render with description" time="0">
-    </testcase>
-    <testcase classname="Input Component Label and Description should associate label with input" name="Input Component Label and Description should associate label with input" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Label and Description should associate description with input via aria-describedby" name="Input Component Label and Description should associate description with input via aria-describedby" time="0">
-    </testcase>
-    <testcase classname="Input Component Input with Icons should render with left icon" name="Input Component Input with Icons should render with left icon" time="0">
-    </testcase>
-    <testcase classname="Input Component Input with Icons should render with right icon" name="Input Component Input with Icons should render with right icon" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Input with Icons should adjust padding when icons are present" name="Input Component Input with Icons should adjust padding when icons are present" time="0">
-    </testcase>
-    <testcase classname="Input Component User Interactions should call onChange when value changes" name="Input Component User Interactions should call onChange when value changes" time="0.001">
-    </testcase>
-    <testcase classname="Input Component User Interactions should call onFocus when input gains focus" name="Input Component User Interactions should call onFocus when input gains focus" time="0.001">
-    </testcase>
-    <testcase classname="Input Component User Interactions should call onBlur when input loses focus" name="Input Component User Interactions should call onBlur when input loses focus" time="0">
-    </testcase>
-    <testcase classname="Input Component User Interactions should call onKeyDown for keyboard events" name="Input Component User Interactions should call onKeyDown for keyboard events" time="0">
-    </testcase>
-    <testcase classname="Input Component Validation should show error message" name="Input Component Validation should show error message" time="0.001">
-    </testcase>
-    <testcase classname="Input Component Validation should apply error styling" name="Input Component Validation should apply error styling" time="0">
-    </testcase>
-    <testcase classname="Input Component Validation should use aria-invalid for error state" name="Input Component Validation should use aria-invalid for error state" time="0">
-    </testcase>
-    <testcase classname="Input Component Validation should show success state" name="Input Component Validation should show success state" time="0">
-    </testcase>
-    <testcase classname="Input Component Accessibility should have proper ARIA attributes" name="Input Component Accessibility should have proper ARIA attributes" time="0">
-    </testcase>
-    <testcase classname="Input Component Accessibility should support keyboard navigation" name="Input Component Accessibility should support keyboard navigation" time="0">
-    </testcase>
-    <testcase classname="Input Component Accessibility should announce error to screen readers" name="Input Component Accessibility should announce error to screen readers" time="0">
-    </testcase>
-    <testcase classname="Input Component Accessibility should have proper label association" name="Input Component Accessibility should have proper label association" time="0">
-    </testcase>
-    <testcase classname="Input Component Form Integration should work with form submission" name="Input Component Form Integration should work with form submission" time="0">
-    </testcase>
-    <testcase classname="Input Component Form Integration should maintain name attribute for form data" name="Input Component Form Integration should maintain name attribute for form data" time="0">
-    </testcase>
-    <testcase classname="Input Component Form Integration should support autocomplete attributes" name="Input Component Form Integration should support autocomplete attributes" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="FilterPanel Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="4.001" tests="15">
-    <testcase classname="FilterPanel Component should render filter panel with all filter options" name="FilterPanel Component should render filter panel with all filter options" time="0.006">
-    </testcase>
-    <testcase classname="FilterPanel Component should display industry filter options" name="FilterPanel Component should display industry filter options" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should display state filter options" name="FilterPanel Component should display state filter options" time="0.004">
-    </testcase>
-    <testcase classname="FilterPanel Component should display revenue band filter options" name="FilterPanel Component should display revenue band filter options" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should call onFilterChange when industry filter changes" name="FilterPanel Component should call onFilterChange when industry filter changes" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should call onFilterChange when state filter changes" name="FilterPanel Component should call onFilterChange when state filter changes" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should call onFilterChange when revenue filter changes" name="FilterPanel Component should call onFilterChange when revenue filter changes" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should show clear filters button when filters are active" name="FilterPanel Component should show clear filters button when filters are active" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should not show clear filters button when no filters are active" name="FilterPanel Component should not show clear filters button when no filters are active" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should call onResetFilters when clear button is clicked" name="FilterPanel Component should call onResetFilters when clear button is clicked" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should call onApplyFilters when apply button is clicked" name="FilterPanel Component should call onApplyFilters when apply button is clicked" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should handle employee range filter changes" name="FilterPanel Component should handle employee range filter changes" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should have proper form labels and accessibility attributes" name="FilterPanel Component should have proper form labels and accessibility attributes" time="0">
-    </testcase>
-    <testcase classname="FilterPanel Component should support keyboard navigation" name="FilterPanel Component should support keyboard navigation" time="0.001">
-    </testcase>
-    <testcase classname="FilterPanel Component should render filter grid layout correctly" name="FilterPanel Component should render filter grid layout correctly" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="CompanyDetailModal Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="4.022" tests="10">
-    <testcase classname="CompanyDetailModal Component should render modal with company details" name="CompanyDetailModal Component should render modal with company details" time="0.005">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should display all company information sections" name="CompanyDetailModal Component should display all company information sections" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should format ABN and ACN with proper spacing" name="CompanyDetailModal Component should format ABN and ACN with proper spacing" time="0.001">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should display business names section when available" name="CompanyDetailModal Component should display business names section when available" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should call onClose when close button is clicked" name="CompanyDetailModal Component should call onClose when close button is clicked" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should close modal when ESC key is pressed" name="CompanyDetailModal Component should close modal when ESC key is pressed" time="0.001">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should close modal when clicking outside modal content" name="CompanyDetailModal Component should close modal when clicking outside modal content" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should prevent body scroll when modal is open" name="CompanyDetailModal Component should prevent body scroll when modal is open" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should restore body scroll when modal is unmounted" name="CompanyDetailModal Component should restore body scroll when modal is unmounted" time="0">
-    </testcase>
-    <testcase classname="CompanyDetailModal Component should display formatted dates" name="CompanyDetailModal Component should display formatted dates" time="0.001">
-    </testcase>
-  </testsuite>
-  <testsuite name="CompanyCard Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="4.026" tests="7">
-    <testcase classname="CompanyCard Component should render without crashing" name="CompanyCard Component should render without crashing" time="0.005">
-    </testcase>
-    <testcase classname="CompanyCard Component should display company name and ABN" name="CompanyCard Component should display company name and ABN" time="0">
-    </testcase>
-    <testcase classname="CompanyCard Component should display company address" name="CompanyCard Component should display company address" time="0.001">
-    </testcase>
-    <testcase classname="CompanyCard Component should display employee count and revenue information" name="CompanyCard Component should display employee count and revenue information" time="0">
-    </testcase>
-    <testcase classname="CompanyCard Component should call onViewDetails when clicked" name="CompanyCard Component should call onViewDetails when clicked" time="0.001">
-    </testcase>
-    <testcase classname="CompanyCard Component should support keyboard navigation" name="CompanyCard Component should support keyboard navigation" time="0">
-    </testcase>
-    <testcase classname="CompanyCard Component should have proper ARIA attributes" name="CompanyCard Component should have proper ARIA attributes" time="0">
-    </testcase>
-  </testsuite>
-  <testsuite name="ResultsPanel Component" errors="0" failures="0" skipped="0" timestamp="2025-07-17T22:31:47" time="4.037" tests="23">
-    <testcase classname="ResultsPanel Component Basic Rendering should render results panel with entities" name="ResultsPanel Component Basic Rendering should render results panel with entities" time="0.004">
-    </testcase>
-    <testcase classname="ResultsPanel Component Basic Rendering should render all provided entities" name="ResultsPanel Component Basic Rendering should render all provided entities" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Basic Rendering should display entity count" name="ResultsPanel Component Basic Rendering should display entity count" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Basic Rendering should render empty state when no entities provided" name="ResultsPanel Component Basic Rendering should render empty state when no entities provided" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Interactions should call handleResultClick when entity is clicked" name="ResultsPanel Component Entity Interactions should call handleResultClick when entity is clicked" time="0.001">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Interactions should handle keyboard navigation" name="ResultsPanel Component Entity Interactions should handle keyboard navigation" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Interactions should support arrow key navigation between entities" name="ResultsPanel Component Entity Interactions should support arrow key navigation between entities" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Display should display entity basic information" name="ResultsPanel Component Entity Display should display entity basic information" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Display should display entity address information" name="ResultsPanel Component Entity Display should display entity address information" time="0.001">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Display should format ABN correctly" name="ResultsPanel Component Entity Display should format ABN correctly" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Entity Display should display employee count and revenue band" name="ResultsPanel Component Entity Display should display employee count and revenue band" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Sorting and Filtering should display entities in provided order" name="ResultsPanel Component Sorting and Filtering should display entities in provided order" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Sorting and Filtering should handle entities with missing information gracefully" name="ResultsPanel Component Sorting and Filtering should handle entities with missing information gracefully" time="0.001">
-    </testcase>
-    <testcase classname="ResultsPanel Component Pagination should handle large numbers of entities" name="ResultsPanel Component Pagination should handle large numbers of entities" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Pagination should implement virtual scrolling for performance" name="ResultsPanel Component Pagination should implement virtual scrolling for performance" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Loading and Error States should display loading state" name="ResultsPanel Component Loading and Error States should display loading state" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Loading and Error States should display error state" name="ResultsPanel Component Loading and Error States should display error state" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Loading and Error States should allow retry when error occurs" name="ResultsPanel Component Loading and Error States should allow retry when error occurs" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Accessibility should have proper ARIA labels and roles" name="ResultsPanel Component Accessibility should have proper ARIA labels and roles" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Accessibility should support screen reader announcements" name="ResultsPanel Component Accessibility should support screen reader announcements" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Accessibility should have proper keyboard navigation" name="ResultsPanel Component Accessibility should have proper keyboard navigation" time="0">
-    </testcase>
-    <testcase classname="ResultsPanel Component Performance should render efficiently with many entities" name="ResultsPanel Component Performance should render efficiently with many entities" time="0.001">
-    </testcase>
-    <testcase classname="ResultsPanel Component Performance should not re-render unnecessarily" name="ResultsPanel Component Performance should not re-render unnecessarily" time="0">
+  <testsuite name="EmptyState Component" errors="0" failures="0" skipped="0" timestamp="2025-07-19T05:40:37" time="1.401" tests="1">
+    <testcase classname="EmptyState Component should support keyboard navigation" name="EmptyState Component should support keyboard navigation" time="0.005">
     </testcase>
   </testsuite>
 </testsuites>
