@@ -1,4 +1,4 @@
-import { Company } from '@/types'
+import { Company } from '../../types'
 import { formatABN, getEmployeeSize } from '../../utils/helpers'
 import * as S from './CompanyCard.styles'
 
@@ -22,13 +22,15 @@ const CompanyCard: React.FC<CompanyCardProps> = ({
       </S.CompanyDetail>
       <S.CompanyDetail>
         <S.DetailLabel>ABN:</S.DetailLabel>
-        <S.DetailValue>{formatABN(company.abn)}</S.DetailValue>
+        <S.DetailValue>{company.abn && formatABN(company.abn)}</S.DetailValue>
       </S.CompanyDetail>
       <S.CompanyDetail>
         <S.DetailLabel>Employees:</S.DetailLabel>
         <S.DetailValue>
-          {company.employeeCount} ({getEmployeeSize(company.employeeCount)})
+          {company.employeeCount} (
+          {getEmployeeSize(company?.employeeCount || 0)})
         </S.DetailValue>
+        '
       </S.CompanyDetail>
       <S.CompanyDetail>
         <S.DetailLabel>Revenue:</S.DetailLabel>

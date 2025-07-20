@@ -85,8 +85,8 @@ export const ResultsPanel = ({
           results?.length > 0 &&
           results?.map((result: SearchResult) => (
             <ResultItem
-              key={result.id || result.abn}
-              company={result}
+              key={result.abn}
+              result={result}
               onClick={() => handleResultClick(result)}
             />
           ))}

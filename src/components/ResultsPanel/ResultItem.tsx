@@ -1,6 +1,6 @@
 'use client'
 import styled from 'styled-components'
-import { CompanyEntity } from '../../types'
+import { SearchResult } from '../../types'
 import { formatABN } from '../../utils/helpers'
 import * as S from './ResultsPanel.styles'
 
@@ -62,14 +62,14 @@ const Tag = styled.span`
 `
 
 interface CompanyCardProps {
-  company: CompanyEntity
+  result: SearchResult
   onClick: () => void
 }
 
 export const ResultItem: React.FC<CompanyCardProps> = ({ result, onClick }) => {
   return (
     <S.ResultsItem onClick={onClick}>
-      <S.ResultsTitle>{result?.name}</S.ResultsTitle>
+      <S.ResultsTitle>{result?.business_name}</S.ResultsTitle>
       <S.ResultsTitle>{result?.legal_name}</S.ResultsTitle>
       <CompanyDetailsGrid>
         <DetailItem>

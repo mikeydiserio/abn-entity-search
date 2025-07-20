@@ -12,7 +12,6 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
   onApplyFilters,
   onResetFilters,
   filters,
-  setFilters,
 }) => {
   const handleCheckboxChange = (
     group: 'industries' | 'employeeSizes' | 'states' | 'revenueBands',

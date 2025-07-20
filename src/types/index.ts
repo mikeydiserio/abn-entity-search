@@ -42,7 +42,6 @@ export interface FilterPanelProps {
   onFilterChange: (newFilters: Partial<FilterState>) => void
   onApplyFilters: () => void
   onResetFilters: () => void
-  setFilters: (name: keyof FilterState, value: any) => void
 }
 
 export interface Location {

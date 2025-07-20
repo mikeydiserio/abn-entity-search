@@ -1,21 +1,20 @@
 'use client'
 import React, { useEffect } from 'react'
-import { BusinessName, SearchResult } from '../..//types'
+import { BusinessName, SearchResult } from '../../types'
 import {
   formatABN,
   formatACN,
   formatDate,
   formatRevenueBand,
 } from '../../utils/helpers'
-import * as S from './CompanyDetailModal.styles'
+import * as S from './DetailModal.styles'
 
-interface CompanyDetailModalProps {
-  details: any
+interface DetailModalProps {
   onClose: () => void
   result: SearchResult
 }
 
-export const CompanyDetailModal: React.FC<CompanyDetailModalProps> = ({
+export const DetailModal: React.FC<DetailModalProps> = ({
   result,
   onClose,
 }) => {
@@ -161,4 +160,4 @@ export const CompanyDetailModal: React.FC<CompanyDetailModalProps> = ({
     </S.ModalOverlay>
   )
 }
-export default CompanyDetailModal
+export default DetailModal

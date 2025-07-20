@@ -1,15 +1,15 @@
-/* eslint-disable no-console */
 'use client'
-import { CompanyDetailModal } from '@/components/CompanyDetailModal/CompanyDetailModal'
-import EmptyState from '@/components/EmptyState/EmptyState'
-import FilterPanel from '@/components/FilterPanel'
-import Header from '@/components/Header/Header'
-import { LoadingSpinner } from '@/components/Loading'
-import ResultsPanel from '@/components/ResultsPanel'
-import { stateOptions } from '@/mocks/content'
-import type { CompanyEntity, FilterState } from '@/types'
+import { createClient } from '@supabase/supabase-js'
 import { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
+// Assuming your components are correctly imported
+import { DetailModal } from '../components/DetailModal/DetailModal'
+import EmptyState from '../components/EmptyState/EmptyState'
+import FilterPanel from '../components/FilterPanel'
+import Header from '../components/Header/Header'
+import { LoadingSpinner } from '../components/Loading'
+import ResultsPanel from '../components/ResultsPanel'
+import type { FilterState, SearchResult } from '../types'
 
 export const ResultsAndFilters = styled.div`
   display: flex;
@@ -24,214 +24,182 @@ export const PageContainer = styled.div`
   max-width: 1080px;
 `
 
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+)
+
+// The custom useDebounce hook remains the same
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value)
+    }, delay)
+    return () => {
+      clearTimeout(handler)
+    }
+  }, [value, delay])
+  return debouncedValue
+}
+
+const PAGE_SIZE = 20
+
 async function fetchEntityData(
   searchTerm: string = '',
   page: number = 1,
   filters?: Partial<FilterState>,
 ) {
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-
-  console.log('Fetching data with:', { searchTerm, page, filters })
-  // Create an abort controller with a reasonable timeout
-  const controller = new AbortController()
-  const timeoutId = setTimeout(() => controller.abort(), 10000)
-
-  if (
-    !supabaseUrl ||
-    !supabaseKey ||
-    supabaseUrl.includes('<') ||
-    supabaseKey.includes('<')
-  ) {
-    console.warn(
-      'Supabase URL and Key are not set. Please replace the placeholder values.',
-    )
-    return { data: [], error: 'Supabase configuration not found' }
-  }
-
   try {
-    let selectQuery = `
-  id,
-  legal_name,
-  abn,
-  business_names:id,
-  business_names:name,
-  entity_types:code,
-  locations:state
-`
-
-    let url = `${supabaseUrl}/rest/v1/entities?select=${encodeURIComponent(
-      selectQuery,
-    )}`
-
-    // Build filter parameters
-    const filterParams: string[] = []
-    if (searchTerm.trim()) {
-      filterParams.push(
-        `or=(legal_name.ilike.*${encodeURIComponent(
-          searchTerm,
-        )}*,abn.like.*${encodeURIComponent(searchTerm.replace(/\s/g, ''))}*)`,
-      )
-    }
-
-    // Additional filters handling
-    if (filters) {
-      if (filters.industries && filters.industries.length > 0) {
-        filterParams.push(
-          `industry.in.(${filters.industries
-            .map(encodeURIComponent)
-            .join(',')})`,
-        )
-      }
-
-      if (filters.states && filters.states.length > 0) {
-        filterParams.push(
-          `locations.state.in.(${filters.states
-            .map(encodeURIComponent)
-            .join(',')})`,
-        )
-      }
-
-      if (filters.activeOnly) {
-        filterParams.push(`abn_status.eq=${encodeURIComponent('active')}`)
-      }
-    }
-
-    if (filterParams.length > 0) {
-      url += `&${filterParams.join('&')}`
-    }
-
-    const response = await fetch(url, {
-      headers: {
-        apikey: supabaseKey,
-        Authorization: `Bearer ${supabaseKey}`, // Use actual user token if authenticated
-        'Content-Type': 'application/json',
-      },
+    const { data, error } = await supabase.rpc('search_entities', {
+      search_term: searchTerm,
+      page_number: page,
+      page_size: PAGE_SIZE,
     })
 
-    // Check response status
-    if (!response.ok) {
-      const errorText = await response.text()
-      console.error('Error details:', {
-        status: response.status,
-        statusText: response.statusText,
-        errorText,
-      })
-      throw new Error(`HTTP error! status: ${response.status}`)
+    if (error) {
+      console.error('Supabase RPC Error:', error)
+      return {
+        data: [],
+        totalCount: 0,
+        error: error.message,
+      }
     }
 
-    const data = await response.json()
+    // Assuming the first row contains the total count
+    const totalCount = data?.[0]?.total_count || 0
 
-    return { data, error: null }
+    return {
+      data: data || [],
+      totalCount,
+      error: null,
+    }
   } catch (error) {
-    console.error('An error occurred during the fetch operation:', error)
+    console.error('Fetch error:', error)
     return {
       data: [],
+      totalCount: 0,
       error:
         error instanceof Error ? error.message : 'An unknown error occurred',
     }
   }
 }
-
 export default function HomePage() {
-  const [entities, setEntities] = useState<CompanyEntity[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [searchTerm, setSearchTerm] = useState('')
-  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState('')
   const [filters, setFilters] = useState<FilterState>({
+    states: [],
     industries: [],
     employeeSizes: [],
     revenueBands: [],
-    states: [],
     activeOnly: false,
     gstRegistered: false,
   })
-  const [selectedCompany, setSelectedCompany] = useState<CompanyEntity | null>(
+  const [query, setQuery] = useState('Diserio')
+  const [results, setResults] = useState<SearchResult[]>([])
+  const [pageNo, setPageNo] = useState(0)
+  const [hasMore, setHasMore] = useState(true)
+
+  const [selectedResult, setSelectedResult] = useState<SearchResult | null>(
     null,
   )
-  const [page, setPage] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  // Reusable data loading function
-  const loadData = useCallback(
-    async (
-      searchQuery: string = '',
-      pageNum: number = 1,
-      resetData: boolean = true,
-    ) => {
-      if (resetData) {
-        setLoading(true)
-        setError(null)
-      }
-
-      try {
-        const { data, error: fetchError } = await fetchEntityData(
-          searchQuery,
-          pageNum,
-          filters,
-        )
-
-        if (fetchError) {
-          setError(fetchError)
-          setEntities([])
-        } else {
-          setEntities(resetData ? data : prev => [...prev, ...data])
-          setError(null)
-        }
-      } catch (err: any) {
-        setError(err.message || 'An unknown error occurred')
-        setEntities([])
-      } finally {
-        setLoading(false)
-      }
-    },
-    [filters],
-  )
+  const debouncedQuery = useDebounce(query, 500)
 
   useEffect(() => {
-    loadData('', 1, true)
+    fetchEntityData(debouncedQuery, pageNo, filters)
   }, [])
 
-  // Load data when search term changes
+  // This function is now memoized with useCallback to prevent re-creation on every render.
+  const fetchData = useCallback(
+    async (
+      currentPage: number,
+      currentFilters: FilterState,
+      currentQuery: string,
+    ) => {
+      // A search query is required to fetch data
+      if (currentQuery.length < 3) {
+        setResults([])
+        setHasMore(true) // Reset
+        return
+      }
+
+      setIsLoading(true)
+      setError(null)
+
+      // Construct the query parameters to send to the backend API route
+      const params = new URLSearchParams({
+        q: currentQuery,
+        page: currentPage.toString(),
+      })
+      if (currentFilters.activeOnly) params.append('activeOnly', 'true')
+      if (currentFilters.gstRegistered) params.append('gstRegistered', 'true')
+      if (currentFilters.states && currentFilters.states.length > 0)
+        params.append('states', currentFilters.states.join(','))
+      // Add other filters like industries here if your API supports them
+      // if (currentFilters.industries && currentFilters.industries.length > 0)
+      //   params.append('industries', currentFilters.industries.join(','))
+
+      try {
+        const response = await fetch(`/api/search?${params.toString()}`)
+        if (!response.ok) {
+          const errorData = await response.json()
+          throw new Error(errorData.error || 'Failed to fetch results.')
+        }
+
+        // Assumes API returns { data: SearchResult[], count: number }
+        const { data, count } = await response.json()
+
+        // If it's the first page, replace results. Otherwise, append them.
+        setResults(prev => (currentPage === 0 ? data : [...prev, ...data]))
+        // Check if there are more results to load
+        setHasMore((currentPage + 1) * PAGE_SIZE < count)
+      } catch (err) {
+        setError(
+          err instanceof Error ? err.message : 'An unknown error occurred.',
+        )
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [],
+  )
+
+  // This is the primary effect for fetching data.
+  // It runs ONLY when the debounced query or filters change.
   useEffect(() => {
-    if (debouncedSearchTerm !== searchTerm) return // Only run when debounce is complete
-    loadData(debouncedSearchTerm, 1, true)
-  }, [debouncedSearchTerm, loadData])
+    setPageNo(0) // Reset to the first page
+    setResults([]) // Clear old results
+    fetchData(0, filters, debouncedQuery)
+  }, [debouncedQuery, filters, fetchData])
 
-  // Load data when filters change
-  useEffect(() => {
-    loadData(debouncedSearchTerm, 1, true)
-  }, [filters, loadData])
-
-  const handleResultClick = (company: CompanyEntity) => {
-    setSelectedCompany(company)
-  }
-
-  const handleSearchChange = (value: string) => {
-    setSearchTerm(value)
+  const handleLoadMore = () => {
+    const nextPage = pageNo + 1
+    setPageNo(nextPage)
+    fetchData(nextPage, filters, debouncedQuery)
   }
 
   const handleFilterChange = (newFilters: Partial<FilterState>) => {
     setFilters(prev => ({ ...prev, ...newFilters }))
   }
 
+  const handleResultClick = (result: SearchResult) => {
+    setSelectedResult(result)
+  }
+
   return (
     <PageContainer>
-      <Header searchTerm={searchTerm} setSearchTerm={handleSearchChange} />
+      {/* FIX: Pass the real-time 'query' to the Header for responsive input */}
+      <Header searchTerm={query} setSearchTerm={setQuery} />
       <main>
         <ResultsAndFilters>
           <ResultsPanel
             handleResultClick={handleResultClick}
-            entities={entities}
+            results={results}
           />
           <FilterPanel
             filters={filters}
-            setFilters={(name, value) =>
-              setFilters(prev => ({
-                ...prev,
-                [name]: value,
-              }))
-            }
+            // FIX: Removed redundant 'setFilters' prop. 'onFilterChange' is sufficient.
             onFilterChange={handleFilterChange}
             onApplyFilters={() => {}} // Filters apply automatically
             onResetFilters={() =>
@@ -239,7 +207,7 @@ export default function HomePage() {
                 industries: [],
                 employeeSizes: [],
                 revenueBands: [],
-                states: stateOptions,
+                states: [], // Reset to empty array, not stateOptions
                 gstRegistered: false,
                 activeOnly: false,
               })
@@ -250,30 +218,40 @@ export default function HomePage() {
         {error && (
           <div className="error-container">
             <p>Error: {error}</p>
-            <button onClick={() => loadData(debouncedSearchTerm, 1, true)}>
+            <button onClick={() => fetchData(pageNo, filters, debouncedQuery)}>
               Try Again
             </button>
           </div>
         )}
 
-        {!loading && !error && entities.length === 0 && (
-          <EmptyState
-            title="No entities found"
-            description="Try adjusting your search terms or filters"
-          />
-        )}
+        {/* FIX: Show EmptyState only if there's a valid search term */}
+        {!isLoading &&
+          !error &&
+          results.length === 0 &&
+          debouncedQuery.length >= 3 && (
+            <EmptyState
+              title="No entities found"
+              description="Try adjusting your search terms or filters"
+            />
+          )}
 
-        {loading && (
+        {isLoading && (
           <div className="loading-more">
-            <LoadingSpinner size="small" message="Loading more..." />
+            <LoadingSpinner size="small" message="Loading..." />
           </div>
         )}
 
-        {selectedCompany && (
-          <CompanyDetailModal
-            company={selectedCompany}
-            details={selectedCompany}
-            onClose={() => setSelectedCompany(null)}
+        {hasMore && !isLoading && results.length > 0 && (
+          <div style={{ textAlign: 'center', padding: '2rem' }}>
+            <button onClick={handleLoadMore}>Load More</button>
+          </div>
+        )}
+
+        {selectedResult && (
+          <DetailModal
+            // FIX: Assuming DetailModal takes a 'result' prop
+            result={selectedResult}
+            onClose={() => setSelectedResult(null)}
           />
         )}
       </main>
