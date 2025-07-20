@@ -20,7 +20,6 @@
     "jest-junit": "^16.0.0",
     "next": "15.4.1",
     "nx": "21.2.4",
-    "plugin-proposal-class-properties": "link:@babel\\plugin-proposal-class-properties",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
