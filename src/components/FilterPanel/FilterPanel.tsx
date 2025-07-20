@@ -1,12 +1,12 @@
+import React from 'react'
 import {
   employeeSizeOptions,
   industryOptions,
   revenueOptions,
   stateOptions,
-} from "@/mocks/content";
-import { FilterPanelProps } from "@/types";
-import React from "react";
-import * as S from "./FilterPanel.styles";
+} from '../../mocks/content'
+import { FilterPanelProps } from '../../types'
+import * as S from './FilterPanel.styles'
 
 export const FilterPanel: React.FC<FilterPanelProps> = ({
   onApplyFilters,
@@ -15,21 +15,21 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
   setFilters,
 }) => {
   const handleCheckboxChange = (
-    group: "industries" | "employeeSizes" | "states" | "revenueBands",
-    value: string
+    group: 'industries' | 'employeeSizes' | 'states' | 'revenueBands',
+    value: string,
   ) => {
     if (!filters) {
-      <span>no filters</span>; // This should be: return <span>no filters</span>;
+      ;<span>no filters</span> // This should be: return <span>no filters</span>;
     }
-    const currentValues = filters[group];
+    const currentValues = filters[group]
     const newValues = currentValues.includes(value)
-      ? currentValues.filter((item) => item !== value)
-      : [...currentValues, value];
-    setFilters(group, newValues);
-  };
+      ? currentValues.filter(item => item !== value)
+      : [...currentValues, value]
+    setFilters(group, newValues)
+  }
 
   if (!filters) {
-    <span>no filters</span>;
+    ;<span>no filters</span>
   }
 
   return (
@@ -42,7 +42,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
               type="checkbox"
               id="active-checkbox"
               checked={filters.activeOnly}
-              onChange={(e) => setFilters("activeOnly", e.target.checked)}
+              onChange={e => setFilters('activeOnly', e.target.checked)}
             />
             <label htmlFor="active-checkbox">Active entities only</label>
           </S.FilterRow>
@@ -51,7 +51,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
               type="checkbox"
               id="gst-checkbox"
               checked={filters.gstRegistered}
-              onChange={(e) => setFilters("gstRegistered", e.target.checked)}
+              onChange={e => setFilters('gstRegistered', e.target.checked)}
             />
             <label htmlFor="gst-checkbox">Registered for GST</label>
           </S.FilterRow>
@@ -63,13 +63,13 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
           <i className="fas fa-industry"></i> Industry
         </S.FilterTitle>
         <S.FilterOptions>
-          {industryOptions.map((opt) => (
+          {industryOptions.map(opt => (
             <S.FilterRow key={opt}>
               <input
                 type="checkbox"
                 id={`ind-${opt}`}
                 checked={filters.industries.includes(opt)}
-                onChange={() => handleCheckboxChange("industries", opt)}
+                onChange={() => handleCheckboxChange('industries', opt)}
               />
               <label htmlFor={`ind-${opt}`}>{opt}</label>
             </S.FilterRow>
@@ -81,13 +81,13 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
           <i className="fas fa-industry"></i> Revenue band
         </S.FilterTitle>
         <S.FilterOptions>
-          {revenueOptions.map((opt) => (
+          {revenueOptions.map(opt => (
             <S.FilterRow key={opt}>
               <input
                 type="checkbox"
                 id={`rev-${opt}`}
                 checked={filters.revenueBands.includes(opt)}
-                onChange={() => handleCheckboxChange("revenueBands", opt)}
+                onChange={() => handleCheckboxChange('revenueBands', opt)}
               />
               <label htmlFor={`rev-${opt}`}>{opt}</label>
             </S.FilterRow>
@@ -99,13 +99,13 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
           <i /> States
         </S.FilterTitle>
         <S.FilterOptions>
-          {stateOptions.map((opt) => (
+          {stateOptions.map(opt => (
             <S.FilterRow key={opt}>
               <input
                 type="checkbox"
                 id={`state-${opt}`}
                 checked={filters.states.includes(opt)}
-                onChange={() => handleCheckboxChange("states", opt)}
+                onChange={() => handleCheckboxChange('states', opt)}
               />
               <label htmlFor={`state-${opt}`}>{opt}</label>
             </S.FilterRow>
@@ -118,13 +118,13 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
           <i /> Employee size
         </S.FilterTitle>
         <S.FilterOptions>
-          {employeeSizeOptions.map((opt) => (
+          {employeeSizeOptions.map(opt => (
             <S.FilterRow key={opt}>
               <input
                 type="checkbox"
                 id={`empsiz-${opt}`}
                 checked={filters.employeeSizes.includes(opt)}
-                onChange={() => handleCheckboxChange("employeeSizes", opt)}
+                onChange={() => handleCheckboxChange('employeeSizes', opt)}
               />
               <label htmlFor={`empsiz-${opt}`}>{opt}</label>
             </S.FilterRow>
@@ -145,7 +145,7 @@ export const FilterPanel: React.FC<FilterPanelProps> = ({
         Reset
       </button>
     </S.Panel>
-  );
-};
+  )
+}
 
-export default FilterPanel;
+export default FilterPanel

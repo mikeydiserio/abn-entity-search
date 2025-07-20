@@ -1,16 +1,16 @@
-import StyledComponentsRegistry from "@/styling/StyledComponentsRegistry";
-import type { Metadata } from "next";
-import "./globals.css";
+import type { Metadata } from 'next'
+import StyledComponentsRegistry from '../styling/StyledComponentsRegistry'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "AU Business Finder",
-  description: "Australian Companies Register Search",
-};
+  title: 'AU Business Finder',
+  description: 'Australian Companies Register Search',
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en">
@@ -21,5 +21,5 @@ export default function RootLayout({
         </StyledComponentsRegistry>
       </body>
     </html>
-  );
+  )
 }

@@ -1,52 +1,52 @@
-import { Select } from "@/components/ui";
-import { sortOptions } from "@/mocks/content";
-import type { CompanyEntity } from "@/types";
-import { useEffect, useState } from "react";
-import { ResultItem } from "./ResultItem";
-import * as S from "./ResultsPanel.styles";
+import { useEffect, useState } from 'react'
+import { Select } from '../../components/ui'
+import { sortOptions } from '../../mocks/content'
+import type { SearchResult } from '../../types'
+import { ResultItem } from './ResultItem'
+import * as S from './ResultsPanel.styles'
 
 interface ResultsPanel {
-  entities?: CompanyEntity[];
-  handleResultClick: (entity: CompanyEntity) => void;
-  error: any;
-  loading: boolean;
+  results?: SearchResult[]
+  handleResultClick: (result: SearchResult) => void
+  error: any
+  loading: boolean
 }
 const mockedlistitem = {
-  name: "asd",
+  name: 'asd',
   id: 1,
-  abn: "",
-  acn: "",
-  industry: "",
-  industryCode: "",
+  abn: '',
+  acn: '',
+  industry: '',
+  industryCode: '',
   employeeCount: 1,
-  revenueBand: "",
-  website: "",
-  emailDomain: "",
-  phone: "",
-};
+  revenueBand: '',
+  website: '',
+  emailDomain: '',
+  phone: '',
+}
 export const ResultsPanel = ({
-  entities,
+  results,
   handleResultClick,
   loading,
   error,
 }: ResultsPanel) => {
-  const [sortOrder, setSortOrder] = useState("");
+  const [sortOrder, setSortOrder] = useState('')
   const renderSkeletonLoading = () => {
-    return <S.SkeletonLoading />;
-  };
+    return <S.SkeletonLoading />
+  }
 
   useEffect(() => {
-    return;
-  }, []);
+    return
+  }, [])
 
   return (
     <S.ResultsColumn>
       <S.ResultsContainer>
         <S.ResultsHeader>
           <S.ResultsTitle>
-            {entities?.length ? (
+            {results?.length ? (
               <p>
-                showing <span>{entities?.length || 0}</span> results for
+                showing <span>{results?.length || 0}</span> results for
                 'serchedTerm'
               </p>
             ) : (
@@ -61,7 +61,7 @@ export const ResultsPanel = ({
               label="Sort By"
               options={sortOptions}
               value={sortOrder}
-              onChange={(e) => setSortOrder(e.target.value)}
+              onChange={e => setSortOrder(e.target.value)}
             />
           </S.ResultsSort>
         </S.ResultsHeader>
@@ -81,20 +81,20 @@ export const ResultsPanel = ({
           onClick={() => handleResultClick(mockedlistitem)}
         /> */}
 
-        {entities &&
-          entities?.length > 0 &&
-          entities?.map((entity: CompanyEntity) => (
+        {results &&
+          results?.length > 0 &&
+          results?.map((result: SearchResult) => (
             <ResultItem
-              key={entity.id || entity.abn}
-              company={entity}
-              onClick={() => handleResultClick(entity)}
+              key={result.id || result.abn}
+              company={result}
+              onClick={() => handleResultClick(result)}
             />
           ))}
       </S.ResultsList>
       {loading ? null : renderSkeletonLoading()}
       {error && <p>App has dun goofed it</p>}
     </S.ResultsColumn>
-  );
-};
+  )
+}
 
-export default ResultsPanel;
+export default ResultsPanel
